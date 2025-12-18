@@ -1,0 +1,94 @@
+{
+  "exp_id": "gpt2_comprehensive_sweep_seed=0_injection_layers=[3]_injection_bit=29_injection_location=weights_injection_idx=(0, 3, 53, 43)",
+  "run_id": 0,
+  "timestamp": "2025-10-14T18:24:39.655401",
+  "baseline_loss": 8.997108459472656,
+  "injected_loss": 8.997114181518555,
+  "loss_diff": 5.7220458984375e-06,
+  "bounds_valid": null,
+  "violation_detected": false,
+  "num_violations": 0,
+  "violation_positions": [],
+  "baseline_epsilon_stats": {
+    "3": {
+      "epsilon_mean": 4.6995015144348145,
+      "epsilon_std": 4.219686508178711,
+      "lower_mean": 0.4203936457633972,
+      "upper_mean": 5.6145782470703125,
+      "gamma_mean": 0.16137349605560303
+    }
+  },
+  "injected_epsilon_stats": null,
+  "injection_info": {
+    "location": "weights",
+    "idx": [
+      0,
+      3,
+      53,
+      43
+    ],
+    "bit": 29,
+    "enabled": true,
+    "multi_bit": false,
+    "bit_list": null,
+    "random_position": false,
+    "injection_rate": 0.0
+  },
+  "extra_data": {
+    "epsilon_analysis": [
+      {
+        "layer_idx": 3,
+        "analysis": {
+          "mean_diff": 8.353435987373814e-05,
+          "std_diff": 0.0032738649751991034,
+          "max_abs_diff": 0.12830877304077148,
+          "top_changes": [
+            [
+              [
+                0,
+                3,
+                53
+              ],
+              {
+                "baseline_epsilon": 0.598240852355957,
+                "injected_epsilon": 0.7265496253967285,
+                "epsilon_diff": 0.12830877304077148,
+                "abs_diff": 0.12830877304077148
+              },
+              {
+                "lower1": 0.008363306522369385,
+                "middle": 0.01645989529788494,
+                "upper": 0.7396883964538574,
+                "gamma": 0.002093017101287842
+              }
+            ]
+          ]
+        }
+      }
+    ],
+    "performance": {
+      "time": {
+        "total_time": 0.018535852432250977,
+        "baseline_forward_time": 0.007222414016723633,
+        "injection_forward_time": 0.006493330001831055,
+        "bounds_computation_time": 0.0007755756378173828,
+        "violation_detection_time": 0.001493215560913086
+      },
+      "memory": {
+        "peak_memory_allocated_mb": 1137.998046875,
+        "peak_memory_reserved_mb": 1632.0,
+        "baseline_memory_mb": 1078.80126953125,
+        "injection_memory_mb": 1137.998046875
+      },
+      "compute": {
+        "num_attention_layers": 12,
+        "num_attention_heads": 12,
+        "sequence_length": 64,
+        "batch_size": 2,
+        "attention_flops": 0.0,
+        "bounds_flops": 0.0
+      },
+      "extra": {}
+    }
+  }
+}

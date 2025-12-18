@@ -1,0 +1,74 @@
+{
+  "exp_id": "gpt2_comprehensive_sweep_seed=123_injection_layers=[6]_injection_bit=31_injection_location=none_injection_idx=(1, 6, 32, 1)",
+  "run_id": 0,
+  "timestamp": "2025-10-14T18:01:21.495121",
+  "baseline_loss": 12.890384674072266,
+  "injected_loss": 12.890384674072266,
+  "loss_diff": 0.0,
+  "bounds_valid": null,
+  "violation_detected": false,
+  "num_violations": 0,
+  "violation_positions": [],
+  "baseline_epsilon_stats": {
+    "6": {
+      "epsilon_mean": 7.864658355712891,
+      "epsilon_std": 3.4537131786346436,
+      "lower_mean": 0.852850615978241,
+      "upper_mean": 17.020122528076172,
+      "gamma_mean": 1.5244500637054443
+    }
+  },
+  "injected_epsilon_stats": null,
+  "injection_info": {
+    "location": "none",
+    "idx": [
+      1,
+      6,
+      32,
+      1
+    ],
+    "bit": 31,
+    "enabled": true,
+    "multi_bit": false,
+    "bit_list": null,
+    "random_position": false,
+    "injection_rate": 0.0
+  },
+  "extra_data": {
+    "epsilon_analysis": [
+      {
+        "layer_idx": 6,
+        "analysis": {
+          "mean_diff": 0.0,
+          "std_diff": 0.0,
+          "max_abs_diff": 0.0,
+          "top_changes": []
+        }
+      }
+    ],
+    "performance": {
+      "time": {
+        "total_time": 0.01840519905090332,
+        "baseline_forward_time": 0.007128477096557617,
+        "injection_forward_time": 0.006551504135131836,
+        "bounds_computation_time": 0.0007944107055664062,
+        "violation_detection_time": 0.0013604164123535156
+      },
+      "memory": {
+        "peak_memory_allocated_mb": 1188.80908203125,
+        "peak_memory_reserved_mb": 1544.0,
+        "baseline_memory_mb": 1129.6123046875,
+        "injection_memory_mb": 1188.80908203125
+      },
+      "compute": {
+        "num_attention_layers": 12,
+        "num_attention_heads": 12,
+        "sequence_length": 64,
+        "batch_size": 2,
+        "attention_flops": 0.0,
+        "bounds_flops": 0.0
+      },
+      "extra": {}
+    }
+  }
+}

@@ -1,0 +1,2907 @@
+================================================================================
+Violation Log for Experiment: gpt2_comprehensive_sweep
+Generated at: 2025-10-14 17:48:37
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #53
+Time: 2025-10-14T17:48:43.141482
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [0]
+  Bit Position:      23
+  Tensor Type:       weights
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275403
+  Loss Difference:    -0.000075
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.000021
+    Std epsilon diff:     0.000809
+    Max |epsilon diff|:   0.031707
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  1.009587
+        Injected ε:  1.041294
+        Δε:          0.031707
+        Bounds:      [0.733628, 1.012833]
+        γ (margin):  0.093359
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 9, 16):
+        Baseline ε:  5.274152
+        Injected ε:  5.274153
+        Δε:          0.000001
+        Bounds:      [0.772415, 5.543225]
+        γ (margin):  0.099616
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #59
+Time: 2025-10-14T17:48:43.431012
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [0]
+  Bit Position:      23
+  Tensor Type:       q
+  Spatial Position:  (1, 6, 32, 1)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275487
+  Loss Difference:    0.000009
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [1, 6, 32])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.000080
+    Std epsilon diff:     0.003130
+    Max |epsilon diff|:   0.122653
+
+    Top 5 Epsilon Changes:
+      #1 Position (1, 6, 32):
+        Baseline ε:  2.860581
+        Injected ε:  2.983235
+        Δε:          0.122653
+        Bounds:      [0.872934, 2.904164]
+        γ (margin):  0.111618
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 11, 46):
+        Baseline ε:  3.029102
+        Injected ε:  3.029101
+        Δε:          -0.000001
+        Bounds:      [1.846505, 3.131071]
+        γ (margin):  0.236238
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #65
+Time: 2025-10-14T17:48:43.718644
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [0]
+  Bit Position:      31
+  Tensor Type:       scores
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275476
+  Loss Difference:    -0.000002
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.001981
+    Std epsilon diff:     0.077650
+    Max |epsilon diff|:   3.043256
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  1.009587
+        Injected ε:  4.052843
+        Δε:          3.043256
+        Bounds:      [0.733628, 1.012833]
+        γ (margin):  0.093359
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 9, 16):
+        Baseline ε:  5.274152
+        Injected ε:  5.274153
+        Δε:          0.000001
+        Bounds:      [0.772415, 5.543225]
+        γ (margin):  0.099616
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #66
+Time: 2025-10-14T17:48:43.767575
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [0]
+  Bit Position:      31
+  Tensor Type:       scores
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275483
+  Loss Difference:    0.000005
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.000875
+    Std epsilon diff:     0.034311
+    Max |epsilon diff|:   1.344723
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  2.400702
+        Injected ε:  3.745425
+        Δε:          1.344723
+        Bounds:      [0.550120, 2.551531]
+        γ (margin):  0.070261
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 9, 16):
+        Baseline ε:  5.274152
+        Injected ε:  5.274153
+        Δε:          0.000001
+        Bounds:      [0.772415, 5.543225]
+        γ (margin):  0.099616
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #73
+Time: 2025-10-14T17:48:44.106393
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [0]
+  Bit Position:      31
+  Tensor Type:       q
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275479
+  Loss Difference:    0.000001
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.000016
+    Std epsilon diff:     0.000634
+    Max |epsilon diff|:   0.024866
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  1.009587
+        Injected ε:  1.034452
+        Δε:          0.024866
+        Bounds:      [0.733628, 1.012833]
+        γ (margin):  0.093359
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 9, 16):
+        Baseline ε:  5.274152
+        Injected ε:  5.274153
+        Δε:          0.000001
+        Bounds:      [0.772415, 5.543225]
+        γ (margin):  0.099616
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #74
+Time: 2025-10-14T17:48:44.155947
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [0]
+  Bit Position:      31
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275478
+  Loss Difference:    0.000000
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.000111
+    Std epsilon diff:     0.004343
+    Max |epsilon diff|:   0.170197
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  2.400702
+        Injected ε:  2.570899
+        Δε:          0.170197
+        Bounds:      [0.550120, 2.551531]
+        γ (margin):  0.070261
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 9, 16):
+        Baseline ε:  5.274152
+        Injected ε:  5.274153
+        Δε:          0.000001
+        Bounds:      [0.772415, 5.543225]
+        γ (margin):  0.099616
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #130
+Time: 2025-10-14T17:48:46.840612
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [3]
+  Bit Position:      23
+  Tensor Type:       scores
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.997108
+  Injected Loss:      8.997108
+  Loss Difference:    0.000000
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (3, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 3:
+    Mean epsilon diff:    0.004909
+    Std epsilon diff:     0.192383
+    Max |epsilon diff|:   7.539858
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  0.598241
+        Injected ε:  8.138099
+        Δε:          7.539858
+        Bounds:      [0.016460, 0.739688]
+        γ (margin):  0.002093
+      #2 Position (1, 4, 30):
+        Baseline ε:  8.079191
+        Injected ε:  8.079197
+        Δε:          0.000006
+        Bounds:      [2.960319, 9.044205]
+        γ (margin):  0.387764
+      #3 Position (0, 4, 44):
+        Baseline ε:  2.694132
+        Injected ε:  2.694136
+        Δε:          0.000005
+        Bounds:      [0.107287, 3.017077]
+        γ (margin):  0.013717
+      #4 Position (1, 4, 19):
+        Baseline ε:  10.053894
+        Injected ε:  10.053890
+        Δε:          -0.000004
+        Bounds:      [1.880450, 12.280812]
+        γ (margin):  0.251125
+      #5 Position (0, 4, 61):
+        Baseline ε:  2.803331
+        Injected ε:  2.803327
+        Δε:          -0.000004
+        Bounds:      [0.052044, 3.163993]
+        γ (margin):  0.006657
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #138
+Time: 2025-10-14T17:48:47.202329
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [3]
+  Bit Position:      23
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.997108
+  Injected Loss:      8.997108
+  Loss Difference:    0.000000
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (3, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 3:
+    Mean epsilon diff:    0.001019
+    Std epsilon diff:     0.039923
+    Max |epsilon diff|:   1.564659
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  0.598241
+        Injected ε:  2.162899
+        Δε:          1.564659
+        Bounds:      [0.016460, 0.739688]
+        γ (margin):  0.002093
+      #2 Position (1, 4, 30):
+        Baseline ε:  8.079191
+        Injected ε:  8.079197
+        Δε:          0.000006
+        Bounds:      [2.960319, 9.044205]
+        γ (margin):  0.387764
+      #3 Position (0, 4, 44):
+        Baseline ε:  2.694132
+        Injected ε:  2.694136
+        Δε:          0.000005
+        Bounds:      [0.107287, 3.017077]
+        γ (margin):  0.013717
+      #4 Position (1, 4, 19):
+        Baseline ε:  10.053894
+        Injected ε:  10.053890
+        Δε:          -0.000004
+        Bounds:      [1.880450, 12.280812]
+        γ (margin):  0.251125
+      #5 Position (0, 4, 61):
+        Baseline ε:  2.803331
+        Injected ε:  2.803327
+        Δε:          -0.000004
+        Bounds:      [0.052044, 3.163993]
+        γ (margin):  0.006657
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #145
+Time: 2025-10-14T17:48:47.517653
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [3]
+  Bit Position:      31
+  Tensor Type:       scores
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.997108
+  Injected Loss:      8.996890
+  Loss Difference:    -0.000218
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (3, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 3:
+    Mean epsilon diff:    0.001719
+    Std epsilon diff:     0.067353
+    Max |epsilon diff|:   2.639693
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  8.368999
+        Injected ε:  11.008693
+        Δε:          2.639693
+        Bounds:      [0.408490, 9.748133]
+        γ (margin):  0.053685
+      #2 Position (1, 4, 30):
+        Baseline ε:  8.079191
+        Injected ε:  8.079197
+        Δε:          0.000006
+        Bounds:      [2.960319, 9.044205]
+        γ (margin):  0.387764
+      #3 Position (0, 4, 44):
+        Baseline ε:  2.694132
+        Injected ε:  2.694136
+        Δε:          0.000005
+        Bounds:      [0.107287, 3.017077]
+        γ (margin):  0.013717
+      #4 Position (1, 4, 19):
+        Baseline ε:  10.053894
+        Injected ε:  10.053890
+        Δε:          -0.000004
+        Bounds:      [1.880450, 12.280812]
+        γ (margin):  0.251125
+      #5 Position (0, 4, 61):
+        Baseline ε:  2.803331
+        Injected ε:  2.803327
+        Δε:          -0.000004
+        Bounds:      [0.052044, 3.163993]
+        γ (margin):  0.006657
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #150
+Time: 2025-10-14T17:48:47.743510
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [3]
+  Bit Position:      31
+  Tensor Type:       weights
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.997108
+  Injected Loss:      8.997120
+  Loss Difference:    0.000011
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (3, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 3:
+    Mean epsilon diff:    0.000167
+    Std epsilon diff:     0.006548
+    Max |epsilon diff|:   0.256618
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  0.598241
+        Injected ε:  0.854859
+        Δε:          0.256618
+        Bounds:      [0.016460, 0.739688]
+        γ (margin):  0.002093
+      #2 Position (1, 4, 30):
+        Baseline ε:  8.079191
+        Injected ε:  8.079197
+        Δε:          0.000006
+        Bounds:      [2.960319, 9.044205]
+        γ (margin):  0.387764
+      #3 Position (0, 4, 44):
+        Baseline ε:  2.694132
+        Injected ε:  2.694136
+        Δε:          0.000005
+        Bounds:      [0.107287, 3.017077]
+        γ (margin):  0.013717
+      #4 Position (1, 4, 19):
+        Baseline ε:  10.053894
+        Injected ε:  10.053890
+        Δε:          -0.000004
+        Bounds:      [1.880450, 12.280812]
+        γ (margin):  0.251125
+      #5 Position (0, 4, 61):
+        Baseline ε:  2.803331
+        Injected ε:  2.803327
+        Δε:          -0.000004
+        Bounds:      [0.052044, 3.163993]
+        γ (margin):  0.006657
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #154
+Time: 2025-10-14T17:48:47.923152
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [3]
+  Bit Position:      31
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.997108
+  Injected Loss:      8.997109
+  Loss Difference:    0.000001
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (3, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 3:
+    Mean epsilon diff:    -0.001990
+    Std epsilon diff:     0.077988
+    Max |epsilon diff|:   3.056500
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  0.598241
+        Injected ε:  -2.458259
+        Δε:          -3.056500
+        Bounds:      [0.016460, 0.739688]
+        γ (margin):  0.002093
+      #2 Position (1, 4, 30):
+        Baseline ε:  8.079191
+        Injected ε:  8.079197
+        Δε:          0.000006
+        Bounds:      [2.960319, 9.044205]
+        γ (margin):  0.387764
+      #3 Position (0, 4, 44):
+        Baseline ε:  2.694132
+        Injected ε:  2.694136
+        Δε:          0.000005
+        Bounds:      [0.107287, 3.017077]
+        γ (margin):  0.013717
+      #4 Position (1, 4, 19):
+        Baseline ε:  10.053894
+        Injected ε:  10.053890
+        Δε:          -0.000004
+        Bounds:      [1.880450, 12.280812]
+        γ (margin):  0.251125
+      #5 Position (0, 4, 61):
+        Baseline ε:  2.803331
+        Injected ε:  2.803327
+        Δε:          -0.000004
+        Bounds:      [0.052044, 3.163993]
+        γ (margin):  0.006657
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #209
+Time: 2025-10-14T17:48:50.361677
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [6]
+  Bit Position:      23
+  Tensor Type:       scores
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.564263
+  Injected Loss:      8.564298
+  Loss Difference:    0.000034
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (6, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 6:
+    Mean epsilon diff:    0.003776
+    Std epsilon diff:     0.148004
+    Max |epsilon diff|:   5.800532
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  0.643227
+        Injected ε:  6.443758
+        Δε:          5.800532
+        Bounds:      [0.005308, 0.882705]
+        γ (margin):  0.000675
+      #2 Position (0, 10, 43):
+        Baseline ε:  7.788990
+        Injected ε:  7.789001
+        Δε:          0.000011
+        Bounds:      [0.205092, 17.617140]
+        γ (margin):  0.027670
+      #3 Position (0, 10, 26):
+        Baseline ε:  7.800655
+        Injected ε:  7.800644
+        Δε:          -0.000011
+        Bounds:      [0.251152, 17.576431]
+        γ (margin):  0.033882
+      #4 Position (1, 10, 58):
+        Baseline ε:  4.414375
+        Injected ε:  4.414383
+        Δε:          0.000008
+        Bounds:      [0.031263, 13.931931]
+        γ (margin):  0.004055
+      #5 Position (0, 10, 12):
+        Baseline ε:  7.701183
+        Injected ε:  7.701176
+        Δε:          -0.000008
+        Bounds:      [0.452438, 16.768488]
+        γ (margin):  0.060784
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #218
+Time: 2025-10-14T17:48:50.769223
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [6]
+  Bit Position:      23
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.564263
+  Injected Loss:      8.564269
+  Loss Difference:    0.000006
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (6, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 6:
+    Mean epsilon diff:    0.000375
+    Std epsilon diff:     0.014699
+    Max |epsilon diff|:   0.576062
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  1.834366
+        Injected ε:  2.410428
+        Δε:          0.576062
+        Bounds:      [0.046029, 2.094398]
+        γ (margin):  0.005871
+      #2 Position (0, 10, 43):
+        Baseline ε:  7.788990
+        Injected ε:  7.789001
+        Δε:          0.000011
+        Bounds:      [0.205092, 17.617140]
+        γ (margin):  0.027670
+      #3 Position (0, 10, 26):
+        Baseline ε:  7.800655
+        Injected ε:  7.800644
+        Δε:          -0.000011
+        Bounds:      [0.251152, 17.576431]
+        γ (margin):  0.033882
+      #4 Position (1, 10, 58):
+        Baseline ε:  4.414375
+        Injected ε:  4.414383
+        Δε:          0.000008
+        Bounds:      [0.031263, 13.931931]
+        γ (margin):  0.004055
+      #5 Position (0, 10, 12):
+        Baseline ε:  7.701183
+        Injected ε:  7.701176
+        Δε:          -0.000008
+        Bounds:      [0.452438, 16.768488]
+        γ (margin):  0.060784
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #221
+Time: 2025-10-14T17:48:50.902794
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [6]
+  Bit Position:      23
+  Tensor Type:       k
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.564263
+  Injected Loss:      8.564256
+  Loss Difference:    -0.000008
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (6, [0, 0, 1])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 6:
+    Mean epsilon diff:    0.000002
+    Std epsilon diff:     0.000142
+    Max |epsilon diff|:   0.005540
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 1):
+        Baseline ε:  0.359084
+        Injected ε:  0.364623
+        Δε:          0.005540
+        Bounds:      [0.006434, 0.364385]
+        γ (margin):  0.000818
+      #2 Position (0, 0, 63):
+        Baseline ε:  0.831274
+        Injected ε:  0.831151
+        Δε:          -0.000124
+        Bounds:      [0.014237, 1.062960]
+        γ (margin):  0.001811
+      #3 Position (0, 0, 62):
+        Baseline ε:  0.824104
+        Injected ε:  0.823984
+        Δε:          -0.000121
+        Bounds:      [0.014014, 1.055918]
+        γ (margin):  0.001783
+      #4 Position (0, 0, 61):
+        Baseline ε:  0.820321
+        Injected ε:  0.820204
+        Δε:          -0.000117
+        Bounds:      [0.013850, 1.052614]
+        γ (margin):  0.001762
+      #5 Position (0, 0, 60):
+        Baseline ε:  0.814422
+        Injected ε:  0.814309
+        Δε:          -0.000113
+        Bounds:      [0.013658, 1.046832]
+        γ (margin):  0.001738
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #234
+Time: 2025-10-14T17:48:51.459668
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [6]
+  Bit Position:      31
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.564263
+  Injected Loss:      8.564277
+  Loss Difference:    0.000013
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (6, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 6:
+    Mean epsilon diff:    0.001502
+    Std epsilon diff:     0.058850
+    Max |epsilon diff|:   2.306450
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  1.834366
+        Injected ε:  4.140816
+        Δε:          2.306450
+        Bounds:      [0.046029, 2.094398]
+        γ (margin):  0.005871
+      #2 Position (0, 10, 43):
+        Baseline ε:  7.788990
+        Injected ε:  7.789001
+        Δε:          0.000011
+        Bounds:      [0.205092, 17.617140]
+        γ (margin):  0.027670
+      #3 Position (0, 10, 26):
+        Baseline ε:  7.800655
+        Injected ε:  7.800644
+        Δε:          -0.000011
+        Bounds:      [0.251152, 17.576431]
+        γ (margin):  0.033882
+      #4 Position (1, 10, 58):
+        Baseline ε:  4.414375
+        Injected ε:  4.414383
+        Δε:          0.000008
+        Bounds:      [0.031263, 13.931931]
+        γ (margin):  0.004055
+      #5 Position (0, 10, 12):
+        Baseline ε:  7.701183
+        Injected ε:  7.701176
+        Δε:          -0.000008
+        Bounds:      [0.452438, 16.768488]
+        γ (margin):  0.060784
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #238
+Time: 2025-10-14T17:48:51.631300
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [6]
+  Bit Position:      31
+  Tensor Type:       k
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.564263
+  Injected Loss:      8.563988
+  Loss Difference:    -0.000276
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (6, [0, 3, 2])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 6:
+    Mean epsilon diff:    0.000215
+    Std epsilon diff:     0.004055
+    Max |epsilon diff|:   0.157352
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 2):
+        Baseline ε:  0.346045
+        Injected ε:  0.503397
+        Δε:          0.157352
+        Bounds:      [0.002688, 0.383978]
+        γ (margin):  0.000342
+      #2 Position (0, 3, 63):
+        Baseline ε:  1.833128
+        Injected ε:  1.837855
+        Δε:          0.004727
+        Bounds:      [0.038846, 2.085609]
+        γ (margin):  0.004955
+      #3 Position (0, 3, 62):
+        Baseline ε:  1.832820
+        Injected ε:  1.837472
+        Δε:          0.004652
+        Bounds:      [0.039516, 2.085662]
+        γ (margin):  0.005040
+      #4 Position (0, 3, 61):
+        Baseline ε:  1.832396
+        Injected ε:  1.836973
+        Δε:          0.004577
+        Bounds:      [0.040549, 2.085360]
+        γ (margin):  0.005172
+      #5 Position (0, 3, 60):
+        Baseline ε:  1.833221
+        Injected ε:  1.837729
+        Δε:          0.004508
+        Bounds:      [0.041061, 2.087342]
+        γ (margin):  0.005237
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #289
+Time: 2025-10-14T17:48:53.711888
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [9]
+  Bit Position:      23
+  Tensor Type:       scores
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.462053
+  Injected Loss:      8.462068
+  Loss Difference:    0.000014
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (9, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 9:
+    Mean epsilon diff:    0.003935
+    Std epsilon diff:     0.154206
+    Max |epsilon diff|:   6.043613
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  1.774924
+        Injected ε:  7.818537
+        Δε:          6.043613
+        Bounds:      [0.039293, 2.456228]
+        γ (margin):  0.005013
+      #2 Position (1, 9, 34):
+        Baseline ε:  7.409044
+        Injected ε:  7.409035
+        Δε:          -0.000010
+        Bounds:      [0.915886, 18.457043]
+        γ (margin):  0.206548
+      #3 Position (1, 9, 33):
+        Baseline ε:  7.470409
+        Injected ε:  7.470400
+        Δε:          -0.000010
+        Bounds:      [0.926961, 18.457043]
+        γ (margin):  0.208836
+      #4 Position (1, 9, 63):
+        Baseline ε:  7.246572
+        Injected ε:  7.246564
+        Δε:          -0.000009
+        Bounds:      [0.855891, 18.457043]
+        γ (margin):  0.191343
+      #5 Position (1, 9, 38):
+        Baseline ε:  7.241113
+        Injected ε:  7.241121
+        Δε:          0.000009
+        Bounds:      [0.892191, 18.457043]
+        γ (margin):  0.201852
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #290
+Time: 2025-10-14T17:48:53.753515
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [9]
+  Bit Position:      23
+  Tensor Type:       scores
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.462053
+  Injected Loss:      8.462065
+  Loss Difference:    0.000011
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (9, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 9:
+    Mean epsilon diff:    0.006001
+    Std epsilon diff:     0.235185
+    Max |epsilon diff|:   9.217337
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  4.871708
+        Injected ε:  14.089045
+        Δε:          9.217337
+        Bounds:      [0.102642, 6.365589]
+        γ (margin):  0.013243
+      #2 Position (1, 9, 34):
+        Baseline ε:  7.409044
+        Injected ε:  7.409035
+        Δε:          -0.000010
+        Bounds:      [0.915886, 18.457043]
+        γ (margin):  0.206548
+      #3 Position (1, 9, 33):
+        Baseline ε:  7.470409
+        Injected ε:  7.470400
+        Δε:          -0.000010
+        Bounds:      [0.926961, 18.457043]
+        γ (margin):  0.208836
+      #4 Position (1, 9, 63):
+        Baseline ε:  7.246572
+        Injected ε:  7.246564
+        Δε:          -0.000009
+        Bounds:      [0.855891, 18.457043]
+        γ (margin):  0.191343
+      #5 Position (1, 9, 38):
+        Baseline ε:  7.241113
+        Injected ε:  7.241121
+        Δε:          0.000009
+        Bounds:      [0.892191, 18.457043]
+        γ (margin):  0.201852
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #303
+Time: 2025-10-14T17:48:54.267974
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [9]
+  Bit Position:      23
+  Tensor Type:       k
+  Spatial Position:  (1, 6, 32, 1)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.462053
+  Injected Loss:      8.462055
+  Loss Difference:    0.000002
+  Num Violations:     2
+
+  Violation Positions (first 5):
+    (9, [1, 6, 2])
+    (9, [1, 6, 3])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 9:
+    Mean epsilon diff:    0.000227
+    Std epsilon diff:     0.006786
+    Max |epsilon diff|:   0.234386
+
+    Top 5 Epsilon Changes:
+      #1 Position (1, 6, 3):
+        Baseline ε:  0.672845
+        Injected ε:  0.907231
+        Δε:          0.234386
+        Bounds:      [0.001188, 0.866696]
+        γ (margin):  0.000151
+      #2 Position (1, 6, 2):
+        Baseline ε:  0.401075
+        Injected ε:  0.526894
+        Δε:          0.125818
+        Bounds:      [0.000052, 0.524820]
+        γ (margin):  0.000007
+      #3 Position (1, 6, 4):
+        Baseline ε:  2.655141
+        Injected ε:  2.653300
+        Δε:          -0.001841
+        Bounds:      [1.173025, 3.813889]
+        γ (margin):  0.150102
+      #4 Position (1, 6, 6):
+        Baseline ε:  4.245941
+        Injected ε:  4.245363
+        Δε:          -0.000578
+        Bounds:      [2.549402, 7.012480]
+        γ (margin):  0.328697
+      #5 Position (1, 6, 10):
+        Baseline ε:  1.833517
+        Injected ε:  1.833014
+        Δε:          -0.000504
+        Bounds:      [0.001522, 4.303087]
+        γ (margin):  0.000195
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #314
+Time: 2025-10-14T17:48:54.818180
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [9]
+  Bit Position:      31
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.462053
+  Injected Loss:      8.462052
+  Loss Difference:    -0.000001
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (9, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 9:
+    Mean epsilon diff:    0.001240
+    Std epsilon diff:     0.048600
+    Max |epsilon diff|:   1.904711
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  4.871708
+        Injected ε:  6.776419
+        Δε:          1.904711
+        Bounds:      [0.102642, 6.365589]
+        γ (margin):  0.013243
+      #2 Position (1, 9, 34):
+        Baseline ε:  7.409044
+        Injected ε:  7.409035
+        Δε:          -0.000010
+        Bounds:      [0.915886, 18.457043]
+        γ (margin):  0.206548
+      #3 Position (1, 9, 33):
+        Baseline ε:  7.470409
+        Injected ε:  7.470400
+        Δε:          -0.000010
+        Bounds:      [0.926961, 18.457043]
+        γ (margin):  0.208836
+      #4 Position (1, 9, 63):
+        Baseline ε:  7.246572
+        Injected ε:  7.246564
+        Δε:          -0.000009
+        Bounds:      [0.855891, 18.457043]
+        γ (margin):  0.191343
+      #5 Position (1, 9, 38):
+        Baseline ε:  7.241113
+        Injected ε:  7.241121
+        Δε:          0.000009
+        Bounds:      [0.892191, 18.457043]
+        γ (margin):  0.201852
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #319
+Time: 2025-10-14T17:48:55.053893
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              42
+  Injection Layers:  [9]
+  Bit Position:      31
+  Tensor Type:       k
+  Spatial Position:  (1, 6, 32, 1)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.462053
+  Injected Loss:      8.462065
+  Loss Difference:    0.000011
+  Num Violations:     2
+
+  Violation Positions (first 5):
+    (9, [1, 6, 2])
+    (9, [1, 6, 3])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 9:
+    Mean epsilon diff:    0.001835
+    Std epsilon diff:     0.035201
+    Max |epsilon diff|:   0.975730
+
+    Top 5 Epsilon Changes:
+      #1 Position (1, 6, 3):
+        Baseline ε:  0.672845
+        Injected ε:  1.648575
+        Δε:          0.975730
+        Bounds:      [0.001188, 0.866696]
+        γ (margin):  0.000151
+      #2 Position (1, 6, 4):
+        Baseline ε:  2.655141
+        Injected ε:  3.463342
+        Δε:          0.808201
+        Bounds:      [1.173025, 3.813889]
+        γ (margin):  0.150102
+      #3 Position (1, 6, 2):
+        Baseline ε:  0.401075
+        Injected ε:  0.932925
+        Δε:          0.531849
+        Bounds:      [0.000052, 0.524820]
+        γ (margin):  0.000007
+      #4 Position (1, 6, 9):
+        Baseline ε:  1.775877
+        Injected ε:  1.871445
+        Δε:          0.095568
+        Bounds:      [0.002961, 3.925468]
+        γ (margin):  0.000378
+      #5 Position (1, 6, 10):
+        Baseline ε:  1.833517
+        Injected ε:  1.868942
+        Δε:          0.035425
+        Bounds:      [0.001522, 4.303087]
+        γ (margin):  0.000195
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #373
+Time: 2025-10-14T17:48:57.767829
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [0]
+  Bit Position:      23
+  Tensor Type:       weights
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275403
+  Loss Difference:    -0.000075
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.000021
+    Std epsilon diff:     0.000809
+    Max |epsilon diff|:   0.031707
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  1.009587
+        Injected ε:  1.041294
+        Δε:          0.031707
+        Bounds:      [0.733628, 1.012833]
+        γ (margin):  0.093359
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 9, 16):
+        Baseline ε:  5.274152
+        Injected ε:  5.274153
+        Δε:          0.000001
+        Bounds:      [0.772415, 5.543225]
+        γ (margin):  0.099616
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #379
+Time: 2025-10-14T17:48:58.067084
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [0]
+  Bit Position:      23
+  Tensor Type:       q
+  Spatial Position:  (1, 6, 32, 1)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275487
+  Loss Difference:    0.000009
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [1, 6, 32])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.000080
+    Std epsilon diff:     0.003130
+    Max |epsilon diff|:   0.122653
+
+    Top 5 Epsilon Changes:
+      #1 Position (1, 6, 32):
+        Baseline ε:  2.860581
+        Injected ε:  2.983235
+        Δε:          0.122653
+        Bounds:      [0.872934, 2.904164]
+        γ (margin):  0.111618
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 11, 46):
+        Baseline ε:  3.029102
+        Injected ε:  3.029101
+        Δε:          -0.000001
+        Bounds:      [1.846505, 3.131071]
+        γ (margin):  0.236238
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #385
+Time: 2025-10-14T17:48:58.360913
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [0]
+  Bit Position:      31
+  Tensor Type:       scores
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275476
+  Loss Difference:    -0.000002
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.001981
+    Std epsilon diff:     0.077650
+    Max |epsilon diff|:   3.043256
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  1.009587
+        Injected ε:  4.052843
+        Δε:          3.043256
+        Bounds:      [0.733628, 1.012833]
+        γ (margin):  0.093359
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 9, 16):
+        Baseline ε:  5.274152
+        Injected ε:  5.274153
+        Δε:          0.000001
+        Bounds:      [0.772415, 5.543225]
+        γ (margin):  0.099616
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #386
+Time: 2025-10-14T17:48:58.412964
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [0]
+  Bit Position:      31
+  Tensor Type:       scores
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275483
+  Loss Difference:    0.000005
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.000875
+    Std epsilon diff:     0.034311
+    Max |epsilon diff|:   1.344723
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  2.400702
+        Injected ε:  3.745425
+        Δε:          1.344723
+        Bounds:      [0.550120, 2.551531]
+        γ (margin):  0.070261
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 9, 16):
+        Baseline ε:  5.274152
+        Injected ε:  5.274153
+        Δε:          0.000001
+        Bounds:      [0.772415, 5.543225]
+        γ (margin):  0.099616
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #393
+Time: 2025-10-14T17:48:58.760233
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [0]
+  Bit Position:      31
+  Tensor Type:       q
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275479
+  Loss Difference:    0.000001
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.000016
+    Std epsilon diff:     0.000634
+    Max |epsilon diff|:   0.024866
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  1.009587
+        Injected ε:  1.034452
+        Δε:          0.024866
+        Bounds:      [0.733628, 1.012833]
+        γ (margin):  0.093359
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 9, 16):
+        Baseline ε:  5.274152
+        Injected ε:  5.274153
+        Δε:          0.000001
+        Bounds:      [0.772415, 5.543225]
+        γ (margin):  0.099616
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #394
+Time: 2025-10-14T17:48:58.813519
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [0]
+  Bit Position:      31
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      10.275478
+  Injected Loss:      10.275478
+  Loss Difference:    0.000000
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (0, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 0:
+    Mean epsilon diff:    0.000111
+    Std epsilon diff:     0.004343
+    Max |epsilon diff|:   0.170197
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  2.400702
+        Injected ε:  2.570899
+        Δε:          0.170197
+        Bounds:      [0.550120, 2.551531]
+        γ (margin):  0.070261
+      #2 Position (0, 11, 63):
+        Baseline ε:  0.955716
+        Injected ε:  0.955715
+        Δε:          -0.000002
+        Bounds:      [0.007119, 1.017627]
+        γ (margin):  0.000906
+      #3 Position (0, 11, 36):
+        Baseline ε:  1.081942
+        Injected ε:  1.081943
+        Δε:          0.000001
+        Bounds:      [0.010487, 1.178432]
+        γ (margin):  0.001335
+      #4 Position (1, 9, 16):
+        Baseline ε:  5.274152
+        Injected ε:  5.274153
+        Δε:          0.000001
+        Bounds:      [0.772415, 5.543225]
+        γ (margin):  0.099616
+      #5 Position (1, 11, 50):
+        Baseline ε:  3.361028
+        Injected ε:  3.361027
+        Δε:          -0.000001
+        Bounds:      [1.768368, 3.467743]
+        γ (margin):  0.226469
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #450
+Time: 2025-10-14T17:49:01.501036
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [3]
+  Bit Position:      23
+  Tensor Type:       scores
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.997108
+  Injected Loss:      8.997108
+  Loss Difference:    0.000000
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (3, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 3:
+    Mean epsilon diff:    0.004909
+    Std epsilon diff:     0.192383
+    Max |epsilon diff|:   7.539858
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  0.598241
+        Injected ε:  8.138099
+        Δε:          7.539858
+        Bounds:      [0.016460, 0.739688]
+        γ (margin):  0.002093
+      #2 Position (1, 4, 30):
+        Baseline ε:  8.079191
+        Injected ε:  8.079197
+        Δε:          0.000006
+        Bounds:      [2.960319, 9.044205]
+        γ (margin):  0.387764
+      #3 Position (0, 4, 44):
+        Baseline ε:  2.694132
+        Injected ε:  2.694136
+        Δε:          0.000005
+        Bounds:      [0.107287, 3.017077]
+        γ (margin):  0.013717
+      #4 Position (1, 4, 19):
+        Baseline ε:  10.053894
+        Injected ε:  10.053890
+        Δε:          -0.000004
+        Bounds:      [1.880450, 12.280812]
+        γ (margin):  0.251125
+      #5 Position (0, 4, 61):
+        Baseline ε:  2.803331
+        Injected ε:  2.803327
+        Δε:          -0.000004
+        Bounds:      [0.052044, 3.163993]
+        γ (margin):  0.006657
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #458
+Time: 2025-10-14T17:49:01.863903
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [3]
+  Bit Position:      23
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.997108
+  Injected Loss:      8.997108
+  Loss Difference:    0.000000
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (3, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 3:
+    Mean epsilon diff:    0.001019
+    Std epsilon diff:     0.039923
+    Max |epsilon diff|:   1.564659
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  0.598241
+        Injected ε:  2.162899
+        Δε:          1.564659
+        Bounds:      [0.016460, 0.739688]
+        γ (margin):  0.002093
+      #2 Position (1, 4, 30):
+        Baseline ε:  8.079191
+        Injected ε:  8.079197
+        Δε:          0.000006
+        Bounds:      [2.960319, 9.044205]
+        γ (margin):  0.387764
+      #3 Position (0, 4, 44):
+        Baseline ε:  2.694132
+        Injected ε:  2.694136
+        Δε:          0.000005
+        Bounds:      [0.107287, 3.017077]
+        γ (margin):  0.013717
+      #4 Position (1, 4, 19):
+        Baseline ε:  10.053894
+        Injected ε:  10.053890
+        Δε:          -0.000004
+        Bounds:      [1.880450, 12.280812]
+        γ (margin):  0.251125
+      #5 Position (0, 4, 61):
+        Baseline ε:  2.803331
+        Injected ε:  2.803327
+        Δε:          -0.000004
+        Bounds:      [0.052044, 3.163993]
+        γ (margin):  0.006657
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #465
+Time: 2025-10-14T17:49:02.180838
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [3]
+  Bit Position:      31
+  Tensor Type:       scores
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.997108
+  Injected Loss:      8.996890
+  Loss Difference:    -0.000218
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (3, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 3:
+    Mean epsilon diff:    0.001719
+    Std epsilon diff:     0.067353
+    Max |epsilon diff|:   2.639693
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  8.368999
+        Injected ε:  11.008693
+        Δε:          2.639693
+        Bounds:      [0.408490, 9.748133]
+        γ (margin):  0.053685
+      #2 Position (1, 4, 30):
+        Baseline ε:  8.079191
+        Injected ε:  8.079197
+        Δε:          0.000006
+        Bounds:      [2.960319, 9.044205]
+        γ (margin):  0.387764
+      #3 Position (0, 4, 44):
+        Baseline ε:  2.694132
+        Injected ε:  2.694136
+        Δε:          0.000005
+        Bounds:      [0.107287, 3.017077]
+        γ (margin):  0.013717
+      #4 Position (1, 4, 19):
+        Baseline ε:  10.053894
+        Injected ε:  10.053890
+        Δε:          -0.000004
+        Bounds:      [1.880450, 12.280812]
+        γ (margin):  0.251125
+      #5 Position (0, 4, 61):
+        Baseline ε:  2.803331
+        Injected ε:  2.803327
+        Δε:          -0.000004
+        Bounds:      [0.052044, 3.163993]
+        γ (margin):  0.006657
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #470
+Time: 2025-10-14T17:49:02.407391
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [3]
+  Bit Position:      31
+  Tensor Type:       weights
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.997108
+  Injected Loss:      8.997120
+  Loss Difference:    0.000011
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (3, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 3:
+    Mean epsilon diff:    0.000167
+    Std epsilon diff:     0.006548
+    Max |epsilon diff|:   0.256618
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  0.598241
+        Injected ε:  0.854859
+        Δε:          0.256618
+        Bounds:      [0.016460, 0.739688]
+        γ (margin):  0.002093
+      #2 Position (1, 4, 30):
+        Baseline ε:  8.079191
+        Injected ε:  8.079197
+        Δε:          0.000006
+        Bounds:      [2.960319, 9.044205]
+        γ (margin):  0.387764
+      #3 Position (0, 4, 44):
+        Baseline ε:  2.694132
+        Injected ε:  2.694136
+        Δε:          0.000005
+        Bounds:      [0.107287, 3.017077]
+        γ (margin):  0.013717
+      #4 Position (1, 4, 19):
+        Baseline ε:  10.053894
+        Injected ε:  10.053890
+        Δε:          -0.000004
+        Bounds:      [1.880450, 12.280812]
+        γ (margin):  0.251125
+      #5 Position (0, 4, 61):
+        Baseline ε:  2.803331
+        Injected ε:  2.803327
+        Δε:          -0.000004
+        Bounds:      [0.052044, 3.163993]
+        γ (margin):  0.006657
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #474
+Time: 2025-10-14T17:49:02.589933
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [3]
+  Bit Position:      31
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.997108
+  Injected Loss:      8.997109
+  Loss Difference:    0.000001
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (3, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 3:
+    Mean epsilon diff:    -0.001990
+    Std epsilon diff:     0.077988
+    Max |epsilon diff|:   3.056500
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  0.598241
+        Injected ε:  -2.458259
+        Δε:          -3.056500
+        Bounds:      [0.016460, 0.739688]
+        γ (margin):  0.002093
+      #2 Position (1, 4, 30):
+        Baseline ε:  8.079191
+        Injected ε:  8.079197
+        Δε:          0.000006
+        Bounds:      [2.960319, 9.044205]
+        γ (margin):  0.387764
+      #3 Position (0, 4, 44):
+        Baseline ε:  2.694132
+        Injected ε:  2.694136
+        Δε:          0.000005
+        Bounds:      [0.107287, 3.017077]
+        γ (margin):  0.013717
+      #4 Position (1, 4, 19):
+        Baseline ε:  10.053894
+        Injected ε:  10.053890
+        Δε:          -0.000004
+        Bounds:      [1.880450, 12.280812]
+        γ (margin):  0.251125
+      #5 Position (0, 4, 61):
+        Baseline ε:  2.803331
+        Injected ε:  2.803327
+        Δε:          -0.000004
+        Bounds:      [0.052044, 3.163993]
+        γ (margin):  0.006657
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #529
+Time: 2025-10-14T17:49:05.096478
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [6]
+  Bit Position:      23
+  Tensor Type:       scores
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.564263
+  Injected Loss:      8.564298
+  Loss Difference:    0.000034
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (6, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 6:
+    Mean epsilon diff:    0.003776
+    Std epsilon diff:     0.148004
+    Max |epsilon diff|:   5.800532
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  0.643227
+        Injected ε:  6.443758
+        Δε:          5.800532
+        Bounds:      [0.005308, 0.882705]
+        γ (margin):  0.000675
+      #2 Position (0, 10, 43):
+        Baseline ε:  7.788990
+        Injected ε:  7.789001
+        Δε:          0.000011
+        Bounds:      [0.205092, 17.617140]
+        γ (margin):  0.027670
+      #3 Position (0, 10, 26):
+        Baseline ε:  7.800655
+        Injected ε:  7.800644
+        Δε:          -0.000011
+        Bounds:      [0.251152, 17.576431]
+        γ (margin):  0.033882
+      #4 Position (1, 10, 58):
+        Baseline ε:  4.414375
+        Injected ε:  4.414383
+        Δε:          0.000008
+        Bounds:      [0.031263, 13.931931]
+        γ (margin):  0.004055
+      #5 Position (0, 10, 12):
+        Baseline ε:  7.701183
+        Injected ε:  7.701176
+        Δε:          -0.000008
+        Bounds:      [0.452438, 16.768488]
+        γ (margin):  0.060784
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #538
+Time: 2025-10-14T17:49:05.495879
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [6]
+  Bit Position:      23
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.564263
+  Injected Loss:      8.564269
+  Loss Difference:    0.000006
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (6, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 6:
+    Mean epsilon diff:    0.000375
+    Std epsilon diff:     0.014699
+    Max |epsilon diff|:   0.576062
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  1.834366
+        Injected ε:  2.410428
+        Δε:          0.576062
+        Bounds:      [0.046029, 2.094398]
+        γ (margin):  0.005871
+      #2 Position (0, 10, 43):
+        Baseline ε:  7.788990
+        Injected ε:  7.789001
+        Δε:          0.000011
+        Bounds:      [0.205092, 17.617140]
+        γ (margin):  0.027670
+      #3 Position (0, 10, 26):
+        Baseline ε:  7.800655
+        Injected ε:  7.800644
+        Δε:          -0.000011
+        Bounds:      [0.251152, 17.576431]
+        γ (margin):  0.033882
+      #4 Position (1, 10, 58):
+        Baseline ε:  4.414375
+        Injected ε:  4.414383
+        Δε:          0.000008
+        Bounds:      [0.031263, 13.931931]
+        γ (margin):  0.004055
+      #5 Position (0, 10, 12):
+        Baseline ε:  7.701183
+        Injected ε:  7.701176
+        Δε:          -0.000008
+        Bounds:      [0.452438, 16.768488]
+        γ (margin):  0.060784
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #541
+Time: 2025-10-14T17:49:05.631044
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [6]
+  Bit Position:      23
+  Tensor Type:       k
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.564263
+  Injected Loss:      8.564256
+  Loss Difference:    -0.000008
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (6, [0, 0, 1])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 6:
+    Mean epsilon diff:    0.000002
+    Std epsilon diff:     0.000142
+    Max |epsilon diff|:   0.005540
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 1):
+        Baseline ε:  0.359084
+        Injected ε:  0.364623
+        Δε:          0.005540
+        Bounds:      [0.006434, 0.364385]
+        γ (margin):  0.000818
+      #2 Position (0, 0, 63):
+        Baseline ε:  0.831274
+        Injected ε:  0.831151
+        Δε:          -0.000124
+        Bounds:      [0.014237, 1.062960]
+        γ (margin):  0.001811
+      #3 Position (0, 0, 62):
+        Baseline ε:  0.824104
+        Injected ε:  0.823984
+        Δε:          -0.000121
+        Bounds:      [0.014014, 1.055918]
+        γ (margin):  0.001783
+      #4 Position (0, 0, 61):
+        Baseline ε:  0.820321
+        Injected ε:  0.820204
+        Δε:          -0.000117
+        Bounds:      [0.013850, 1.052614]
+        γ (margin):  0.001762
+      #5 Position (0, 0, 60):
+        Baseline ε:  0.814422
+        Injected ε:  0.814309
+        Δε:          -0.000113
+        Bounds:      [0.013658, 1.046832]
+        γ (margin):  0.001738
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #554
+Time: 2025-10-14T17:49:06.194160
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [6]
+  Bit Position:      31
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.564263
+  Injected Loss:      8.564277
+  Loss Difference:    0.000013
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (6, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 6:
+    Mean epsilon diff:    0.001502
+    Std epsilon diff:     0.058850
+    Max |epsilon diff|:   2.306450
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  1.834366
+        Injected ε:  4.140816
+        Δε:          2.306450
+        Bounds:      [0.046029, 2.094398]
+        γ (margin):  0.005871
+      #2 Position (0, 10, 43):
+        Baseline ε:  7.788990
+        Injected ε:  7.789001
+        Δε:          0.000011
+        Bounds:      [0.205092, 17.617140]
+        γ (margin):  0.027670
+      #3 Position (0, 10, 26):
+        Baseline ε:  7.800655
+        Injected ε:  7.800644
+        Δε:          -0.000011
+        Bounds:      [0.251152, 17.576431]
+        γ (margin):  0.033882
+      #4 Position (1, 10, 58):
+        Baseline ε:  4.414375
+        Injected ε:  4.414383
+        Δε:          0.000008
+        Bounds:      [0.031263, 13.931931]
+        γ (margin):  0.004055
+      #5 Position (0, 10, 12):
+        Baseline ε:  7.701183
+        Injected ε:  7.701176
+        Δε:          -0.000008
+        Bounds:      [0.452438, 16.768488]
+        γ (margin):  0.060784
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #558
+Time: 2025-10-14T17:49:06.369629
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [6]
+  Bit Position:      31
+  Tensor Type:       k
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.564263
+  Injected Loss:      8.563988
+  Loss Difference:    -0.000276
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (6, [0, 3, 2])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 6:
+    Mean epsilon diff:    0.000215
+    Std epsilon diff:     0.004055
+    Max |epsilon diff|:   0.157352
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 2):
+        Baseline ε:  0.346045
+        Injected ε:  0.503397
+        Δε:          0.157352
+        Bounds:      [0.002688, 0.383978]
+        γ (margin):  0.000342
+      #2 Position (0, 3, 63):
+        Baseline ε:  1.833128
+        Injected ε:  1.837855
+        Δε:          0.004727
+        Bounds:      [0.038846, 2.085609]
+        γ (margin):  0.004955
+      #3 Position (0, 3, 62):
+        Baseline ε:  1.832820
+        Injected ε:  1.837472
+        Δε:          0.004652
+        Bounds:      [0.039516, 2.085662]
+        γ (margin):  0.005040
+      #4 Position (0, 3, 61):
+        Baseline ε:  1.832396
+        Injected ε:  1.836973
+        Δε:          0.004577
+        Bounds:      [0.040549, 2.085360]
+        γ (margin):  0.005172
+      #5 Position (0, 3, 60):
+        Baseline ε:  1.833221
+        Injected ε:  1.837729
+        Δε:          0.004508
+        Bounds:      [0.041061, 2.087342]
+        γ (margin):  0.005237
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #609
+Time: 2025-10-14T17:49:08.443133
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [9]
+  Bit Position:      23
+  Tensor Type:       scores
+  Spatial Position:  (0, 0, 10, 20)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.462053
+  Injected Loss:      8.462068
+  Loss Difference:    0.000014
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (9, [0, 0, 10])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 9:
+    Mean epsilon diff:    0.003935
+    Std epsilon diff:     0.154206
+    Max |epsilon diff|:   6.043613
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 0, 10):
+        Baseline ε:  1.774924
+        Injected ε:  7.818537
+        Δε:          6.043613
+        Bounds:      [0.039293, 2.456228]
+        γ (margin):  0.005013
+      #2 Position (1, 9, 34):
+        Baseline ε:  7.409044
+        Injected ε:  7.409035
+        Δε:          -0.000010
+        Bounds:      [0.915886, 18.457043]
+        γ (margin):  0.206548
+      #3 Position (1, 9, 33):
+        Baseline ε:  7.470409
+        Injected ε:  7.470400
+        Δε:          -0.000010
+        Bounds:      [0.926961, 18.457043]
+        γ (margin):  0.208836
+      #4 Position (1, 9, 63):
+        Baseline ε:  7.246572
+        Injected ε:  7.246564
+        Δε:          -0.000009
+        Bounds:      [0.855891, 18.457043]
+        γ (margin):  0.191343
+      #5 Position (1, 9, 38):
+        Baseline ε:  7.241113
+        Injected ε:  7.241121
+        Δε:          0.000009
+        Bounds:      [0.892191, 18.457043]
+        γ (margin):  0.201852
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #610
+Time: 2025-10-14T17:49:08.487887
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [9]
+  Bit Position:      23
+  Tensor Type:       scores
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.462053
+  Injected Loss:      8.462065
+  Loss Difference:    0.000011
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (9, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 9:
+    Mean epsilon diff:    0.006001
+    Std epsilon diff:     0.235185
+    Max |epsilon diff|:   9.217337
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  4.871708
+        Injected ε:  14.089045
+        Δε:          9.217337
+        Bounds:      [0.102642, 6.365589]
+        γ (margin):  0.013243
+      #2 Position (1, 9, 34):
+        Baseline ε:  7.409044
+        Injected ε:  7.409035
+        Δε:          -0.000010
+        Bounds:      [0.915886, 18.457043]
+        γ (margin):  0.206548
+      #3 Position (1, 9, 33):
+        Baseline ε:  7.470409
+        Injected ε:  7.470400
+        Δε:          -0.000010
+        Bounds:      [0.926961, 18.457043]
+        γ (margin):  0.208836
+      #4 Position (1, 9, 63):
+        Baseline ε:  7.246572
+        Injected ε:  7.246564
+        Δε:          -0.000009
+        Bounds:      [0.855891, 18.457043]
+        γ (margin):  0.191343
+      #5 Position (1, 9, 38):
+        Baseline ε:  7.241113
+        Injected ε:  7.241121
+        Δε:          0.000009
+        Bounds:      [0.892191, 18.457043]
+        γ (margin):  0.201852
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #623
+Time: 2025-10-14T17:49:09.009584
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [9]
+  Bit Position:      23
+  Tensor Type:       k
+  Spatial Position:  (1, 6, 32, 1)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.462053
+  Injected Loss:      8.462055
+  Loss Difference:    0.000002
+  Num Violations:     2
+
+  Violation Positions (first 5):
+    (9, [1, 6, 2])
+    (9, [1, 6, 3])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 9:
+    Mean epsilon diff:    0.000227
+    Std epsilon diff:     0.006786
+    Max |epsilon diff|:   0.234386
+
+    Top 5 Epsilon Changes:
+      #1 Position (1, 6, 3):
+        Baseline ε:  0.672845
+        Injected ε:  0.907231
+        Δε:          0.234386
+        Bounds:      [0.001188, 0.866696]
+        γ (margin):  0.000151
+      #2 Position (1, 6, 2):
+        Baseline ε:  0.401075
+        Injected ε:  0.526894
+        Δε:          0.125818
+        Bounds:      [0.000052, 0.524820]
+        γ (margin):  0.000007
+      #3 Position (1, 6, 4):
+        Baseline ε:  2.655141
+        Injected ε:  2.653300
+        Δε:          -0.001841
+        Bounds:      [1.173025, 3.813889]
+        γ (margin):  0.150102
+      #4 Position (1, 6, 6):
+        Baseline ε:  4.245941
+        Injected ε:  4.245363
+        Δε:          -0.000578
+        Bounds:      [2.549402, 7.012480]
+        γ (margin):  0.328697
+      #5 Position (1, 6, 10):
+        Baseline ε:  1.833517
+        Injected ε:  1.833014
+        Δε:          -0.000504
+        Bounds:      [0.001522, 4.303087]
+        γ (margin):  0.000195
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #634
+Time: 2025-10-14T17:49:09.450919
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [9]
+  Bit Position:      31
+  Tensor Type:       q
+  Spatial Position:  (0, 3, 53, 43)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.462053
+  Injected Loss:      8.462052
+  Loss Difference:    -0.000001
+  Num Violations:     1
+
+  Violation Positions (first 5):
+    (9, [0, 3, 53])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 9:
+    Mean epsilon diff:    0.001240
+    Std epsilon diff:     0.048600
+    Max |epsilon diff|:   1.904711
+
+    Top 5 Epsilon Changes:
+      #1 Position (0, 3, 53):
+        Baseline ε:  4.871708
+        Injected ε:  6.776419
+        Δε:          1.904711
+        Bounds:      [0.102642, 6.365589]
+        γ (margin):  0.013243
+      #2 Position (1, 9, 34):
+        Baseline ε:  7.409044
+        Injected ε:  7.409035
+        Δε:          -0.000010
+        Bounds:      [0.915886, 18.457043]
+        γ (margin):  0.206548
+      #3 Position (1, 9, 33):
+        Baseline ε:  7.470409
+        Injected ε:  7.470400
+        Δε:          -0.000010
+        Bounds:      [0.926961, 18.457043]
+        γ (margin):  0.208836
+      #4 Position (1, 9, 63):
+        Baseline ε:  7.246572
+        Injected ε:  7.246564
+        Δε:          -0.000009
+        Bounds:      [0.855891, 18.457043]
+        γ (margin):  0.191343
+      #5 Position (1, 9, 38):
+        Baseline ε:  7.241113
+        Injected ε:  7.241121
+        Δε:          0.000009
+        Bounds:      [0.892191, 18.457043]
+        γ (margin):  0.201852
+
+================================================================================
+
+
+================================================================================
+VIOLATION DETECTED - Config #639
+Time: 2025-10-14T17:49:09.786900
+================================================================================
+
+Configuration:
+--------------------------------------------------------------------------------
+  Seed:              123
+  Injection Layers:  [9]
+  Bit Position:      31
+  Tensor Type:       k
+  Spatial Position:  (1, 6, 32, 1)
+  Model:             gpt2
+  Batch Size:        2
+  Sequence Length:   64
+
+Results:
+--------------------------------------------------------------------------------
+  Baseline Loss:      8.462053
+  Injected Loss:      8.462065
+  Loss Difference:    0.000011
+  Num Violations:     2
+
+  Violation Positions (first 5):
+    (9, [1, 6, 2])
+    (9, [1, 6, 3])
+
+Epsilon Analysis:
+--------------------------------------------------------------------------------
+
+  Layer 9:
+    Mean epsilon diff:    0.001835
+    Std epsilon diff:     0.035201
+    Max |epsilon diff|:   0.975730
+
+    Top 5 Epsilon Changes:
+      #1 Position (1, 6, 3):
+        Baseline ε:  0.672845
+        Injected ε:  1.648575
+        Δε:          0.975730
+        Bounds:      [0.001188, 0.866696]
+        γ (margin):  0.000151
+      #2 Position (1, 6, 4):
+        Baseline ε:  2.655141
+        Injected ε:  3.463342
+        Δε:          0.808201
+        Bounds:      [1.173025, 3.813889]
+        γ (margin):  0.150102
+      #3 Position (1, 6, 2):
+        Baseline ε:  0.401075
+        Injected ε:  0.932925
+        Δε:          0.531849
+        Bounds:      [0.000052, 0.524820]
+        γ (margin):  0.000007
+      #4 Position (1, 6, 9):
+        Baseline ε:  1.775877
+        Injected ε:  1.871445
+        Δε:          0.095568
+        Bounds:      [0.002961, 3.925468]
+        γ (margin):  0.000378
+      #5 Position (1, 6, 10):
+        Baseline ε:  1.833517
+        Injected ε:  1.868942
+        Δε:          0.035425
+        Bounds:      [0.001522, 4.303087]
+        γ (margin):  0.000195
+
+================================================================================
+

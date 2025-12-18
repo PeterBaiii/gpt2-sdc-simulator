@@ -1,0 +1,28 @@
+{
+  "exp_id": "gpt2_comprehensive_sweep_seed=3407_injection_layers=[9]_injection_bit=1_injection_location=weights_injection_idx=(0, 3, 53, 43)",
+  "num_runs": 1,
+  "timestamp": "2025-12-12T07:13:22.866261",
+  "baseline_loss": {
+    "mean": 8.462052345275879,
+    "std": 0.0,
+    "min": 8.462052345275879,
+    "max": 8.462052345275879
+  },
+  "injected_loss": {
+    "mean": 8.462053298950195,
+    "std": 0.0,
+    "min": 8.462053298950195,
+    "max": 8.462053298950195
+  },
+  "loss_diff": {
+    "mean": 9.5367431640625e-07,
+    "std": 0.0,
+    "min": 9.5367431640625e-07,
+    "max": 9.5367431640625e-07
+  },
+  "violation_detection": {
+    "detection_rate": 0.0,
+    "total_violations": 0,
+    "avg_violations_per_run": 0.0
+  }
+}

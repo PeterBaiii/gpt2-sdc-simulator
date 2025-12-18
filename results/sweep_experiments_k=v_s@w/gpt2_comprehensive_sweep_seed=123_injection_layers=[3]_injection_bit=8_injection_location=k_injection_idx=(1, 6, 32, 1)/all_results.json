@@ -1,0 +1,134 @@
+[
+  {
+    "exp_id": "gpt2_comprehensive_sweep_seed=123_injection_layers=[3]_injection_bit=8_injection_location=k_injection_idx=(1, 6, 32, 1)",
+    "run_id": 0,
+    "timestamp": "2025-12-12T07:10:20.074305",
+    "baseline_loss": 8.997109413146973,
+    "injected_loss": 8.997109413146973,
+    "loss_diff": 0.0,
+    "bounds_valid": null,
+    "violation_detected": false,
+    "num_violations": 0,
+    "violation_positions": [],
+    "baseline_epsilon_stats": {
+      "3": {
+        "epsilon_mean": 4.6995015144348145,
+        "epsilon_std": 4.219686031341553,
+        "lower_mean": 0.4203936457633972,
+        "upper_mean": 5.6145782470703125,
+        "gamma_mean": 0.16137349605560303
+      }
+    },
+    "injected_epsilon_stats": null,
+    "injection_info": {
+      "location": "k",
+      "idx": [
+        1,
+        6,
+        32,
+        1
+      ],
+      "bit": 8,
+      "enabled": true,
+      "multi_bit": false,
+      "bit_list": null,
+      "random_position": false,
+      "injection_rate": 0.0
+    },
+    "extra_data": {
+      "epsilon_analysis": [
+        {
+          "layer_idx": 3,
+          "analysis": {
+            "mean_diff": -9.313225746154785e-10,
+            "std_diff": 2.1059690880065318e-08,
+            "max_abs_diff": 4.76837158203125e-07,
+            "top_changes": [
+              [
+                [
+                  1,
+                  6,
+                  27
+                ],
+                {
+                  "baseline_epsilon": 6.008928298950195,
+                  "injected_epsilon": 6.008927822113037,
+                  "epsilon_diff": -4.76837158203125e-07,
+                  "abs_diff": 4.76837158203125e-07
+                },
+                {
+                  "lower1": 1.5819915533065796,
+                  "middle": 4.14027214050293,
+                  "upper": 6.2994160652160645,
+                  "gamma": 0.5355964303016663
+                }
+              ],
+              [
+                [
+                  1,
+                  6,
+                  17
+                ],
+                {
+                  "baseline_epsilon": 4.9423933029174805,
+                  "injected_epsilon": 4.942392826080322,
+                  "epsilon_diff": -4.76837158203125e-07,
+                  "abs_diff": 4.76837158203125e-07
+                },
+                {
+                  "lower1": 1.3233463764190674,
+                  "middle": 3.2321605682373047,
+                  "upper": 5.138629913330078,
+                  "gamma": 0.4162316918373108
+                }
+              ],
+              [
+                [
+                  1,
+                  6,
+                  7
+                ],
+                {
+                  "baseline_epsilon": 6.251054763793945,
+                  "injected_epsilon": 6.251054286956787,
+                  "epsilon_diff": -4.76837158203125e-07,
+                  "abs_diff": 4.76837158203125e-07
+                },
+                {
+                  "lower1": 0.8127026557922363,
+                  "middle": 1.7710354328155518,
+                  "upper": 6.548864841461182,
+                  "gamma": 0.22936511039733887
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "performance": {
+        "time": {
+          "total_time": 0.018924236297607422,
+          "baseline_forward_time": 0.007251739501953125,
+          "injection_forward_time": 0.006602764129638672,
+          "bounds_computation_time": 0.0007643699645996094,
+          "violation_detection_time": 0.0016231536865234375
+        },
+        "memory": {
+          "peak_memory_allocated_mb": 1259.14453125,
+          "peak_memory_reserved_mb": 1830.0,
+          "baseline_memory_mb": 1199.94775390625,
+          "injection_memory_mb": 1259.14453125
+        },
+        "compute": {
+          "num_attention_layers": 12,
+          "num_attention_heads": 12,
+          "sequence_length": 64,
+          "batch_size": 2,
+          "attention_flops": 0.0,
+          "bounds_flops": 0.0
+        },
+        "extra": {}
+      }
+    }
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "exp_id": "gpt2_comprehensive_sweep_seed=3407_injection_layers=[6]_injection_bit=6_injection_location=k_injection_idx=(0, 0, 10, 20)",
+    "run_id": 0,
+    "timestamp": "2025-12-12T07:12:57.141221",
+    "baseline_loss": 8.564264297485352,
+    "injected_loss": 8.564263343811035,
+    "loss_diff": -9.5367431640625e-07,
+    "bounds_valid": null,
+    "violation_detected": false,
+    "num_violations": 0,
+    "violation_positions": [],
+    "baseline_epsilon_stats": {
+      "6": {
+        "epsilon_mean": 5.956024169921875,
+        "epsilon_std": 4.427911758422852,
+        "lower_mean": 0.5316863656044006,
+        "upper_mean": 7.960529327392578,
+        "gamma_mean": 0.18503431975841522
+      }
+    },
+    "injected_epsilon_stats": null,
+    "injection_info": {
+      "location": "k",
+      "idx": [
+        0,
+        0,
+        10,
+        20
+      ],
+      "bit": 6,
+      "enabled": true,
+      "multi_bit": false,
+      "bit_list": null,
+      "random_position": false,
+      "injection_rate": 0.0
+    },
+    "extra_data": {
+      "epsilon_analysis": [
+        {
+          "layer_idx": 6,
+          "analysis": {
+            "mean_diff": 0.0,
+            "std_diff": 0.0,
+            "max_abs_diff": 0.0,
+            "top_changes": []
+          }
+        }
+      ],
+      "performance": {
+        "time": {
+          "total_time": 0.018466711044311523,
+          "baseline_forward_time": 0.0072002410888671875,
+          "injection_forward_time": 0.006604433059692383,
+          "bounds_computation_time": 0.0007421970367431641,
+          "violation_detection_time": 0.001354217529296875
+        },
+        "memory": {
+          "peak_memory_allocated_mb": 1219.845703125,
+          "peak_memory_reserved_mb": 1854.0,
+          "baseline_memory_mb": 1160.64892578125,
+          "injection_memory_mb": 1219.845703125
+        },
+        "compute": {
+          "num_attention_layers": 12,
+          "num_attention_heads": 12,
+          "sequence_length": 64,
+          "batch_size": 2,
+          "attention_flops": 0.0,
+          "bounds_flops": 0.0
+        },
+        "extra": {}
+      }
+    }
+  }
+]

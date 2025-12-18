@@ -1,0 +1,76 @@
+[
+  {
+    "exp_id": "gpt2_comprehensive_sweep_seed=3407_injection_layers=[6]_injection_bit=5_injection_location=scores_injection_idx=(0, 3, 53, 43)",
+    "run_id": 0,
+    "timestamp": "2025-12-12T07:12:56.078301",
+    "baseline_loss": 8.564264297485352,
+    "injected_loss": 8.564264297485352,
+    "loss_diff": 0.0,
+    "bounds_valid": null,
+    "violation_detected": false,
+    "num_violations": 0,
+    "violation_positions": [],
+    "baseline_epsilon_stats": {
+      "6": {
+        "epsilon_mean": 5.956024169921875,
+        "epsilon_std": 4.427911758422852,
+        "lower_mean": 0.5316863656044006,
+        "upper_mean": 7.960529327392578,
+        "gamma_mean": 0.18503431975841522
+      }
+    },
+    "injected_epsilon_stats": null,
+    "injection_info": {
+      "location": "scores",
+      "idx": [
+        0,
+        3,
+        53,
+        43
+      ],
+      "bit": 5,
+      "enabled": true,
+      "multi_bit": false,
+      "bit_list": null,
+      "random_position": false,
+      "injection_rate": 0.0
+    },
+    "extra_data": {
+      "epsilon_analysis": [
+        {
+          "layer_idx": 6,
+          "analysis": {
+            "mean_diff": 0.0,
+            "std_diff": 0.0,
+            "max_abs_diff": 0.0,
+            "top_changes": []
+          }
+        }
+      ],
+      "performance": {
+        "time": {
+          "total_time": 0.01842021942138672,
+          "baseline_forward_time": 0.007160186767578125,
+          "injection_forward_time": 0.006586551666259766,
+          "bounds_computation_time": 0.0007550716400146484,
+          "violation_detection_time": 0.0013420581817626953
+        },
+        "memory": {
+          "peak_memory_allocated_mb": 1139.748046875,
+          "peak_memory_reserved_mb": 1854.0,
+          "baseline_memory_mb": 1080.55126953125,
+          "injection_memory_mb": 1139.748046875
+        },
+        "compute": {
+          "num_attention_layers": 12,
+          "num_attention_heads": 12,
+          "sequence_length": 64,
+          "batch_size": 2,
+          "attention_flops": 0.0,
+          "bounds_flops": 0.0
+        },
+        "extra": {}
+      }
+    }
+  }
+]

@@ -1,0 +1,629 @@
+{
+  "total_violations": 8,
+  "violations": [
+    {
+      "config_idx": 52,
+      "timestamp": "2025-10-14T18:31:18.175151",
+      "config": {
+        "seed": 0,
+        "injection_layers": [
+          0
+        ],
+        "injection_bit": 23,
+        "injection_location": "scores",
+        "injection_idx": [
+          1,
+          9,
+          31,
+          62
+        ],
+        "model_name": "gpt2",
+        "batch_size": 2,
+        "seq_length": 64
+      },
+      "result": {
+        "baseline_loss": 6.073779106140137,
+        "injected_loss": 6.073779582977295,
+        "loss_diff": 4.76837158203125e-07,
+        "violation_detected": true,
+        "num_violations": 1,
+        "violation_positions": [
+          [
+            0,
+            [
+              1,
+              9,
+              31
+            ]
+          ]
+        ],
+        "epsilon_analysis": [
+          {
+            "layer_idx": 0,
+            "mean_diff": 0.0034544661175459623,
+            "std_diff": 0.1353868693113327,
+            "max_abs_diff": 5.306059837341309,
+            "top_changes": [
+              {
+                "position": [
+                  1,
+                  9,
+                  31
+                ],
+                "baseline_epsilon": 4.158117294311523,
+                "injected_epsilon": 9.464177131652832,
+                "epsilon_diff": 5.306059837341309,
+                "abs_diff": 5.306059837341309,
+                "middle_bound": 0.11599933356046677,
+                "upper_bound": 8.236154556274414,
+                "gamma": 0.014980852603912354
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "config_idx": 63,
+      "timestamp": "2025-10-14T18:31:18.681778",
+      "config": {
+        "seed": 0,
+        "injection_layers": [
+          0
+        ],
+        "injection_bit": 23,
+        "injection_location": "k",
+        "injection_idx": [
+          1,
+          6,
+          32,
+          1
+        ],
+        "model_name": "gpt2",
+        "batch_size": 2,
+        "seq_length": 64
+      },
+      "result": {
+        "baseline_loss": 6.073779106140137,
+        "injected_loss": 6.073742389678955,
+        "loss_diff": -3.6716461181640625e-05,
+        "violation_detected": true,
+        "num_violations": 2,
+        "violation_positions": [
+          [
+            0,
+            [
+              1,
+              6,
+              5
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              6,
+              6
+            ]
+          ]
+        ],
+        "epsilon_analysis": [
+          {
+            "layer_idx": 0,
+            "mean_diff": 0.001799052464775741,
+            "std_diff": 0.046946026384830475,
+            "max_abs_diff": 1.434783697128296,
+            "top_changes": [
+              {
+                "position": [
+                  1,
+                  6,
+                  5
+                ],
+                "baseline_epsilon": 1.9564502239227295,
+                "injected_epsilon": 3.3912339210510254,
+                "epsilon_diff": 1.434783697128296,
+                "abs_diff": 1.434783697128296,
+                "middle_bound": 0.090036541223526,
+                "upper_bound": 3.353713035583496,
+                "gamma": 0.01150059700012207
+              },
+              {
+                "position": [
+                  1,
+                  6,
+                  6
+                ],
+                "baseline_epsilon": 1.1245832443237305,
+                "injected_epsilon": 2.2719507217407227,
+                "epsilon_diff": 1.1473674774169922,
+                "abs_diff": 1.1473674774169922,
+                "middle_bound": 0.15967082977294922,
+                "upper_bound": 1.5314931869506836,
+                "gamma": 0.020332932472229004
+              },
+              {
+                "position": [
+                  1,
+                  6,
+                  3
+                ],
+                "baseline_epsilon": 5.674100875854492,
+                "injected_epsilon": 5.610998153686523,
+                "epsilon_diff": -0.06310272216796875,
+                "abs_diff": 0.06310272216796875,
+                "middle_bound": 2.3552775382995605,
+                "upper_bound": 5.978893280029297,
+                "gamma": 0.3042558431625366
+              },
+              {
+                "position": [
+                  1,
+                  6,
+                  4
+                ],
+                "baseline_epsilon": 2.5435376167297363,
+                "injected_epsilon": 2.497387409210205,
+                "epsilon_diff": -0.04615020751953125,
+                "abs_diff": 0.04615020751953125,
+                "middle_bound": 0.14093172550201416,
+                "upper_bound": 3.0630240440368652,
+                "gamma": 0.018015265464782715
+              },
+              {
+                "position": [
+                  1,
+                  6,
+                  1
+                ],
+                "baseline_epsilon": 13.997207641601562,
+                "injected_epsilon": 13.959833145141602,
+                "epsilon_diff": -0.03737449645996094,
+                "abs_diff": 0.03737449645996094,
+                "middle_bound": 10.563838958740234,
+                "upper_bound": 16.22843360900879,
+                "gamma": 1.474819540977478
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "config_idx": 67,
+      "timestamp": "2025-10-14T18:31:18.866203",
+      "config": {
+        "seed": 0,
+        "injection_layers": [
+          0
+        ],
+        "injection_bit": 31,
+        "injection_location": "scores",
+        "injection_idx": [
+          1,
+          6,
+          32,
+          1
+        ],
+        "model_name": "gpt2",
+        "batch_size": 2,
+        "seq_length": 64
+      },
+      "result": {
+        "baseline_loss": 6.073779106140137,
+        "injected_loss": 6.0739922523498535,
+        "loss_diff": 0.00021314620971679688,
+        "violation_detected": true,
+        "num_violations": 1,
+        "violation_positions": [
+          [
+            0,
+            [
+              1,
+              6,
+              32
+            ]
+          ]
+        ],
+        "epsilon_analysis": [
+          {
+            "layer_idx": 0,
+            "mean_diff": 0.007605425547808409,
+            "std_diff": 0.2980705797672272,
+            "max_abs_diff": 11.681933403015137,
+            "top_changes": [
+              {
+                "position": [
+                  1,
+                  6,
+                  32
+                ],
+                "baseline_epsilon": 5.546673774719238,
+                "injected_epsilon": 17.228607177734375,
+                "epsilon_diff": 11.681933403015137,
+                "abs_diff": 11.681933403015137,
+                "middle_bound": 0.872336208820343,
+                "upper_bound": 7.716122627258301,
+                "gamma": 0.11306226253509521
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "config_idx": 209,
+      "timestamp": "2025-10-14T18:31:25.033199",
+      "config": {
+        "seed": 0,
+        "injection_layers": [
+          6
+        ],
+        "injection_bit": 23,
+        "injection_location": "scores",
+        "injection_idx": [
+          0,
+          0,
+          10,
+          20
+        ],
+        "model_name": "gpt2",
+        "batch_size": 2,
+        "seq_length": 64
+      },
+      "result": {
+        "baseline_loss": 8.242022514343262,
+        "injected_loss": 8.242024421691895,
+        "loss_diff": 1.9073486328125e-06,
+        "violation_detected": true,
+        "num_violations": 1,
+        "violation_positions": [
+          [
+            6,
+            [
+              0,
+              0,
+              10
+            ]
+          ]
+        ],
+        "epsilon_analysis": [
+          {
+            "layer_idx": 6,
+            "mean_diff": 0.0008316822350025177,
+            "std_diff": 0.03259515389800072,
+            "max_abs_diff": 1.2774639129638672,
+            "top_changes": [
+              {
+                "position": [
+                  0,
+                  0,
+                  10
+                ],
+                "baseline_epsilon": 1.3747704029083252,
+                "injected_epsilon": 2.6522343158721924,
+                "epsilon_diff": 1.2774639129638672,
+                "abs_diff": 1.2774639129638672,
+                "middle_bound": 0.02294771932065487,
+                "upper_bound": 1.5531446933746338,
+                "gamma": 0.002923309803009033
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "config_idx": 372,
+      "timestamp": "2025-10-14T18:31:31.847430",
+      "config": {
+        "seed": 42,
+        "injection_layers": [
+          0
+        ],
+        "injection_bit": 23,
+        "injection_location": "scores",
+        "injection_idx": [
+          1,
+          9,
+          31,
+          62
+        ],
+        "model_name": "gpt2",
+        "batch_size": 2,
+        "seq_length": 64
+      },
+      "result": {
+        "baseline_loss": 6.073779106140137,
+        "injected_loss": 6.073779582977295,
+        "loss_diff": 4.76837158203125e-07,
+        "violation_detected": true,
+        "num_violations": 1,
+        "violation_positions": [
+          [
+            0,
+            [
+              1,
+              9,
+              31
+            ]
+          ]
+        ],
+        "epsilon_analysis": [
+          {
+            "layer_idx": 0,
+            "mean_diff": 0.0034544661175459623,
+            "std_diff": 0.1353868693113327,
+            "max_abs_diff": 5.306059837341309,
+            "top_changes": [
+              {
+                "position": [
+                  1,
+                  9,
+                  31
+                ],
+                "baseline_epsilon": 4.158117294311523,
+                "injected_epsilon": 9.464177131652832,
+                "epsilon_diff": 5.306059837341309,
+                "abs_diff": 5.306059837341309,
+                "middle_bound": 0.11599933356046677,
+                "upper_bound": 8.236154556274414,
+                "gamma": 0.014980852603912354
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "config_idx": 383,
+      "timestamp": "2025-10-14T18:31:32.358817",
+      "config": {
+        "seed": 42,
+        "injection_layers": [
+          0
+        ],
+        "injection_bit": 23,
+        "injection_location": "k",
+        "injection_idx": [
+          1,
+          6,
+          32,
+          1
+        ],
+        "model_name": "gpt2",
+        "batch_size": 2,
+        "seq_length": 64
+      },
+      "result": {
+        "baseline_loss": 6.073779106140137,
+        "injected_loss": 6.073742389678955,
+        "loss_diff": -3.6716461181640625e-05,
+        "violation_detected": true,
+        "num_violations": 2,
+        "violation_positions": [
+          [
+            0,
+            [
+              1,
+              6,
+              5
+            ]
+          ],
+          [
+            0,
+            [
+              1,
+              6,
+              6
+            ]
+          ]
+        ],
+        "epsilon_analysis": [
+          {
+            "layer_idx": 0,
+            "mean_diff": 0.001799052464775741,
+            "std_diff": 0.046946026384830475,
+            "max_abs_diff": 1.434783697128296,
+            "top_changes": [
+              {
+                "position": [
+                  1,
+                  6,
+                  5
+                ],
+                "baseline_epsilon": 1.9564502239227295,
+                "injected_epsilon": 3.3912339210510254,
+                "epsilon_diff": 1.434783697128296,
+                "abs_diff": 1.434783697128296,
+                "middle_bound": 0.090036541223526,
+                "upper_bound": 3.353713035583496,
+                "gamma": 0.01150059700012207
+              },
+              {
+                "position": [
+                  1,
+                  6,
+                  6
+                ],
+                "baseline_epsilon": 1.1245832443237305,
+                "injected_epsilon": 2.2719507217407227,
+                "epsilon_diff": 1.1473674774169922,
+                "abs_diff": 1.1473674774169922,
+                "middle_bound": 0.15967082977294922,
+                "upper_bound": 1.5314931869506836,
+                "gamma": 0.020332932472229004
+              },
+              {
+                "position": [
+                  1,
+                  6,
+                  3
+                ],
+                "baseline_epsilon": 5.674100875854492,
+                "injected_epsilon": 5.610998153686523,
+                "epsilon_diff": -0.06310272216796875,
+                "abs_diff": 0.06310272216796875,
+                "middle_bound": 2.3552775382995605,
+                "upper_bound": 5.978893280029297,
+                "gamma": 0.3042558431625366
+              },
+              {
+                "position": [
+                  1,
+                  6,
+                  4
+                ],
+                "baseline_epsilon": 2.5435376167297363,
+                "injected_epsilon": 2.497387409210205,
+                "epsilon_diff": -0.04615020751953125,
+                "abs_diff": 0.04615020751953125,
+                "middle_bound": 0.14093172550201416,
+                "upper_bound": 3.0630240440368652,
+                "gamma": 0.018015265464782715
+              },
+              {
+                "position": [
+                  1,
+                  6,
+                  1
+                ],
+                "baseline_epsilon": 13.997207641601562,
+                "injected_epsilon": 13.959833145141602,
+                "epsilon_diff": -0.03737449645996094,
+                "abs_diff": 0.03737449645996094,
+                "middle_bound": 10.563838958740234,
+                "upper_bound": 16.22843360900879,
+                "gamma": 1.474819540977478
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "config_idx": 387,
+      "timestamp": "2025-10-14T18:31:32.542968",
+      "config": {
+        "seed": 42,
+        "injection_layers": [
+          0
+        ],
+        "injection_bit": 31,
+        "injection_location": "scores",
+        "injection_idx": [
+          1,
+          6,
+          32,
+          1
+        ],
+        "model_name": "gpt2",
+        "batch_size": 2,
+        "seq_length": 64
+      },
+      "result": {
+        "baseline_loss": 6.073779106140137,
+        "injected_loss": 6.0739922523498535,
+        "loss_diff": 0.00021314620971679688,
+        "violation_detected": true,
+        "num_violations": 1,
+        "violation_positions": [
+          [
+            0,
+            [
+              1,
+              6,
+              32
+            ]
+          ]
+        ],
+        "epsilon_analysis": [
+          {
+            "layer_idx": 0,
+            "mean_diff": 0.007605425547808409,
+            "std_diff": 0.2980705797672272,
+            "max_abs_diff": 11.681933403015137,
+            "top_changes": [
+              {
+                "position": [
+                  1,
+                  6,
+                  32
+                ],
+                "baseline_epsilon": 5.546673774719238,
+                "injected_epsilon": 17.228607177734375,
+                "epsilon_diff": 11.681933403015137,
+                "abs_diff": 11.681933403015137,
+                "middle_bound": 0.872336208820343,
+                "upper_bound": 7.716122627258301,
+                "gamma": 0.11306226253509521
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "config_idx": 529,
+      "timestamp": "2025-10-14T18:31:38.783197",
+      "config": {
+        "seed": 42,
+        "injection_layers": [
+          6
+        ],
+        "injection_bit": 23,
+        "injection_location": "scores",
+        "injection_idx": [
+          0,
+          0,
+          10,
+          20
+        ],
+        "model_name": "gpt2",
+        "batch_size": 2,
+        "seq_length": 64
+      },
+      "result": {
+        "baseline_loss": 8.242022514343262,
+        "injected_loss": 8.242024421691895,
+        "loss_diff": 1.9073486328125e-06,
+        "violation_detected": true,
+        "num_violations": 1,
+        "violation_positions": [
+          [
+            6,
+            [
+              0,
+              0,
+              10
+            ]
+          ]
+        ],
+        "epsilon_analysis": [
+          {
+            "layer_idx": 6,
+            "mean_diff": 0.0008316822350025177,
+            "std_diff": 0.03259515389800072,
+            "max_abs_diff": 1.2774639129638672,
+            "top_changes": [
+              {
+                "position": [
+                  0,
+                  0,
+                  10
+                ],
+                "baseline_epsilon": 1.3747704029083252,
+                "injected_epsilon": 2.6522343158721924,
+                "epsilon_diff": 1.2774639129638672,
+                "abs_diff": 1.2774639129638672,
+                "middle_bound": 0.02294771932065487,
+                "upper_bound": 1.5531446933746338,
+                "gamma": 0.002923309803009033
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

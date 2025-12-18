@@ -1,0 +1,134 @@
+[
+  {
+    "exp_id": "gpt2_comprehensive_sweep_seed=42_injection_layers=[3]_injection_bit=16_injection_location=k_injection_idx=(0, 0, 10, 20)",
+    "run_id": 0,
+    "timestamp": "2025-12-12T07:00:57.613616",
+    "baseline_loss": 13.791720390319824,
+    "injected_loss": 13.791720390319824,
+    "loss_diff": 0.0,
+    "bounds_valid": null,
+    "violation_detected": false,
+    "num_violations": 0,
+    "violation_positions": [],
+    "baseline_epsilon_stats": {
+      "3": {
+        "epsilon_mean": 6.302740097045898,
+        "epsilon_std": 2.23594331741333,
+        "lower_mean": 0.9555976390838623,
+        "upper_mean": 17.05971336364746,
+        "gamma_mean": 1.0718344449996948
+      }
+    },
+    "injected_epsilon_stats": null,
+    "injection_info": {
+      "location": "k",
+      "idx": [
+        0,
+        0,
+        10,
+        20
+      ],
+      "bit": 16,
+      "enabled": true,
+      "multi_bit": false,
+      "bit_list": null,
+      "random_position": false,
+      "injection_rate": 0.0
+    },
+    "extra_data": {
+      "epsilon_analysis": [
+        {
+          "layer_idx": 3,
+          "analysis": {
+            "mean_diff": 6.829699028543246e-09,
+            "std_diff": 2.189662069440601e-07,
+            "max_abs_diff": 7.62939453125e-06,
+            "top_changes": [
+              [
+                [
+                  0,
+                  0,
+                  53
+                ],
+                {
+                  "baseline_epsilon": 0.318572998046875,
+                  "injected_epsilon": 0.31858062744140625,
+                  "epsilon_diff": 7.62939453125e-06,
+                  "abs_diff": 7.62939453125e-06
+                },
+                {
+                  "lower1": 0.006060867570340633,
+                  "middle": 0.312795490026474,
+                  "upper": 0.3799419403076172,
+                  "gamma": 9.429059982299805
+                }
+              ],
+              [
+                [
+                  0,
+                  0,
+                  26
+                ],
+                {
+                  "baseline_epsilon": 0.7047348022460938,
+                  "injected_epsilon": 0.7047386169433594,
+                  "epsilon_diff": 3.814697265625e-06,
+                  "abs_diff": 3.814697265625e-06
+                },
+                {
+                  "lower1": 0.01423833891749382,
+                  "middle": 0.6847602725028992,
+                  "upper": 0.8854756355285645,
+                  "gamma": 8.467254638671875
+                }
+              ],
+              [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                {
+                  "baseline_epsilon": 11.564088821411133,
+                  "injected_epsilon": 11.564087867736816,
+                  "epsilon_diff": -9.5367431640625e-07,
+                  "abs_diff": 9.5367431640625e-07
+                },
+                {
+                  "lower1": 2.2121572494506836,
+                  "middle": 10.538558959960938,
+                  "upper": 12.258696556091309,
+                  "gamma": 1.416372537612915
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "performance": {
+        "time": {
+          "total_time": 0.018941640853881836,
+          "baseline_forward_time": 0.007252931594848633,
+          "injection_forward_time": 0.006681680679321289,
+          "bounds_computation_time": 0.0007724761962890625,
+          "violation_detection_time": 0.0016484260559082031
+        },
+        "memory": {
+          "peak_memory_allocated_mb": 1399.3154296875,
+          "peak_memory_reserved_mb": 1786.0,
+          "baseline_memory_mb": 1340.11865234375,
+          "injection_memory_mb": 1399.3154296875
+        },
+        "compute": {
+          "num_attention_layers": 12,
+          "num_attention_heads": 12,
+          "sequence_length": 64,
+          "batch_size": 2,
+          "attention_flops": 0.0,
+          "bounds_flops": 0.0
+        },
+        "extra": {}
+      }
+    }
+  }
+]

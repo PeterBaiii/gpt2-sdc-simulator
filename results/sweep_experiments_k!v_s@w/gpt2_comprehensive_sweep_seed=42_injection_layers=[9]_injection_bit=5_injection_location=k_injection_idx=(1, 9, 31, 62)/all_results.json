@@ -1,0 +1,134 @@
+[
+  {
+    "exp_id": "gpt2_comprehensive_sweep_seed=42_injection_layers=[9]_injection_bit=5_injection_location=k_injection_idx=(1, 9, 31, 62)",
+    "run_id": 0,
+    "timestamp": "2025-12-12T07:01:33.991170",
+    "baseline_loss": 13.721663475036621,
+    "injected_loss": 13.721662521362305,
+    "loss_diff": -9.5367431640625e-07,
+    "bounds_valid": null,
+    "violation_detected": false,
+    "num_violations": 0,
+    "violation_positions": [],
+    "baseline_epsilon_stats": {
+      "9": {
+        "epsilon_mean": 10.922141075134277,
+        "epsilon_std": 4.307835578918457,
+        "lower_mean": 1.0468783378601074,
+        "upper_mean": 16.82538414001465,
+        "gamma_mean": 2.1429390907287598
+      }
+    },
+    "injected_epsilon_stats": null,
+    "injection_info": {
+      "location": "k",
+      "idx": [
+        1,
+        9,
+        31,
+        62
+      ],
+      "bit": 5,
+      "enabled": true,
+      "multi_bit": false,
+      "bit_list": null,
+      "random_position": false,
+      "injection_rate": 0.0
+    },
+    "extra_data": {
+      "epsilon_analysis": [
+        {
+          "layer_idx": 9,
+          "analysis": {
+            "mean_diff": -6.208817460162663e-09,
+            "std_diff": 1.4591640251637727e-07,
+            "max_abs_diff": 3.814697265625e-06,
+            "top_changes": [
+              [
+                [
+                  1,
+                  9,
+                  46
+                ],
+                {
+                  "baseline_epsilon": 5.099302291870117,
+                  "injected_epsilon": 5.099298477172852,
+                  "epsilon_diff": -3.814697265625e-06,
+                  "abs_diff": 3.814697265625e-06
+                },
+                {
+                  "lower1": 0.1641792505979538,
+                  "middle": 4.660374641418457,
+                  "upper": 8.430092811584473,
+                  "gamma": 5.606496810913086
+                }
+              ],
+              [
+                [
+                  1,
+                  9,
+                  50
+                ],
+                {
+                  "baseline_epsilon": 4.572242736816406,
+                  "injected_epsilon": 4.572238922119141,
+                  "epsilon_diff": -3.814697265625e-06,
+                  "abs_diff": 3.814697265625e-06
+                },
+                {
+                  "lower1": 0.14662852883338928,
+                  "middle": 4.181585788726807,
+                  "upper": 7.711971759796143,
+                  "gamma": 5.744307994842529
+                }
+              ],
+              [
+                [
+                  1,
+                  9,
+                  39
+                ],
+                {
+                  "baseline_epsilon": 6.173578262329102,
+                  "injected_epsilon": 6.173576354980469,
+                  "epsilon_diff": -1.9073486328125e-06,
+                  "abs_diff": 1.9073486328125e-06
+                },
+                {
+                  "lower1": 0.20106486976146698,
+                  "middle": 5.634857177734375,
+                  "upper": 9.812878608703613,
+                  "gamma": 5.357333183288574
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "performance": {
+        "time": {
+          "total_time": 0.018886089324951172,
+          "baseline_forward_time": 0.007249116897583008,
+          "injection_forward_time": 0.0066072940826416016,
+          "bounds_computation_time": 0.0007569789886474609,
+          "violation_detection_time": 0.0016591548919677734
+        },
+        "memory": {
+          "peak_memory_allocated_mb": 1159.0224609375,
+          "peak_memory_reserved_mb": 1786.0,
+          "baseline_memory_mb": 1099.82568359375,
+          "injection_memory_mb": 1159.0224609375
+        },
+        "compute": {
+          "num_attention_layers": 12,
+          "num_attention_heads": 12,
+          "sequence_length": 64,
+          "batch_size": 2,
+          "attention_flops": 0.0,
+          "bounds_flops": 0.0
+        },
+        "extra": {}
+      }
+    }
+  }
+]

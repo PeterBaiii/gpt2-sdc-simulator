@@ -1,0 +1,455 @@
+{
+  "exp_id": "gpt2_comprehensive_sweep_seed=123_injection_layers=[9]_injection_bit=11_injection_location=k_injection_idx=(1, 9, 31, 62)",
+  "run_id": 0,
+  "timestamp": "2025-12-12T07:03:07.252850",
+  "baseline_loss": 13.721663475036621,
+  "injected_loss": 13.721663475036621,
+  "loss_diff": 0.0,
+  "bounds_valid": null,
+  "violation_detected": false,
+  "num_violations": 0,
+  "violation_positions": [],
+  "baseline_epsilon_stats": {
+    "9": {
+      "epsilon_mean": 10.922141075134277,
+      "epsilon_std": 4.307835578918457,
+      "lower_mean": 1.0468783378601074,
+      "upper_mean": 16.82538414001465,
+      "gamma_mean": 2.1429390907287598
+    }
+  },
+  "injected_epsilon_stats": null,
+  "injection_info": {
+    "location": "k",
+    "idx": [
+      1,
+      9,
+      31,
+      62
+    ],
+    "bit": 11,
+    "enabled": true,
+    "multi_bit": false,
+    "bit_list": null,
+    "random_position": false,
+    "injection_rate": 0.0
+  },
+  "extra_data": {
+    "epsilon_analysis": [
+      {
+        "layer_idx": 9,
+        "analysis": {
+          "mean_diff": 1.8067657947540283e-07,
+          "std_diff": 1.0671066092982073e-06,
+          "max_abs_diff": 9.5367431640625e-06,
+          "top_changes": [
+            [
+              [
+                1,
+                9,
+                23
+              ],
+              {
+                "baseline_epsilon": 9.241689682006836,
+                "injected_epsilon": 9.24169921875,
+                "epsilon_diff": 9.5367431640625e-06,
+                "abs_diff": 9.5367431640625e-06
+              },
+              {
+                "lower1": 0.30301186442375183,
+                "middle": 8.482575416564941,
+                "upper": 12.856084823608398,
+                "gamma": 4.843135833740234
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                11
+              ],
+              {
+                "baseline_epsilon": 12.557973861694336,
+                "injected_epsilon": 12.5579833984375,
+                "epsilon_diff": 9.5367431640625e-06,
+                "abs_diff": 9.5367431640625e-06
+              },
+              {
+                "lower1": 0.39435330033302307,
+                "middle": 11.890321731567383,
+                "upper": 14.800774574279785,
+                "gamma": 4.503884792327881
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                35
+              ],
+              {
+                "baseline_epsilon": 6.868251800537109,
+                "injected_epsilon": 6.868259429931641,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.22487951815128326,
+                "middle": 6.268352031707764,
+                "upper": 10.62045955657959,
+                "gamma": 5.218426704406738
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                33
+              ],
+              {
+                "baseline_epsilon": 7.240442276000977,
+                "injected_epsilon": 7.240449905395508,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.2378464639186859,
+                "middle": 6.608298301696777,
+                "upper": 11.033872604370117,
+                "gamma": 5.148481845855713
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                8
+              ],
+              {
+                "baseline_epsilon": 15.011950492858887,
+                "injected_epsilon": 15.011958122253418,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.5168220400810242,
+                "middle": 14.387133598327637,
+                "upper": 16.560596466064453,
+                "gamma": 4.1459174156188965
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                2
+              ],
+              {
+                "baseline_epsilon": 8.904884338378906,
+                "injected_epsilon": 8.904876708984375,
+                "epsilon_diff": -7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 1.9353705644607544,
+                "middle": 5.7160115242004395,
+                "upper": 14.094648361206055,
+                "gamma": 0.7583770751953125
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                17
+              ],
+              {
+                "baseline_epsilon": 10.542343139648438,
+                "injected_epsilon": 10.542350769042969,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.33600157499313354,
+                "middle": 9.790892601013184,
+                "upper": 13.632672309875488,
+                "gamma": 4.711032867431641
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                24
+              ],
+              {
+                "baseline_epsilon": 9.044605255126953,
+                "injected_epsilon": 9.044612884521484,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.29748988151550293,
+                "middle": 8.290994644165039,
+                "upper": 12.717071533203125,
+                "gamma": 4.8665266036987305
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                45
+              ],
+              {
+                "baseline_epsilon": 5.2314605712890625,
+                "injected_epsilon": 5.231468200683594,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.1685226857662201,
+                "middle": 4.780798435211182,
+                "upper": 8.601662635803223,
+                "gamma": 5.574552536010742
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                37
+              ],
+              {
+                "baseline_epsilon": 6.51495361328125,
+                "injected_epsilon": 6.514961242675781,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.21267615258693695,
+                "middle": 5.946131229400635,
+                "upper": 10.214627265930176,
+                "gamma": 5.287785530090332
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                28
+              ],
+              {
+                "baseline_epsilon": 8.213525772094727,
+                "injected_epsilon": 8.213533401489258,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.27070164680480957,
+                "middle": 7.507699012756348,
+                "upper": 12.003533363342285,
+                "gamma": 4.986004829406738
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                32
+              ],
+              {
+                "baseline_epsilon": 7.423810958862305,
+                "injected_epsilon": 7.423818588256836,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.24405373632907867,
+                "middle": 6.777031421661377,
+                "upper": 11.2254638671875,
+                "gamma": 5.1162495613098145
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                47
+              ],
+              {
+                "baseline_epsilon": 4.967859268188477,
+                "injected_epsilon": 4.967866897583008,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.1599934846162796,
+                "middle": 4.540087699890137,
+                "upper": 8.26246452331543,
+                "gamma": 5.63804817199707
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                57
+              ],
+              {
+                "baseline_epsilon": 3.8077659606933594,
+                "injected_epsilon": 3.8077735900878906,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.12123259156942368,
+                "middle": 3.4879231452941895,
+                "upper": 6.599761009216309,
+                "gamma": 5.974435806274414
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                16
+              ],
+              {
+                "baseline_epsilon": 10.763561248779297,
+                "injected_epsilon": 10.763568878173828,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.3399370312690735,
+                "middle": 10.028746604919434,
+                "upper": 13.719404220581055,
+                "gamma": 4.696073532104492
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                19
+              ],
+              {
+                "baseline_epsilon": 10.108489990234375,
+                "injected_epsilon": 10.108497619628906,
+                "epsilon_diff": 7.62939453125e-06,
+                "abs_diff": 7.62939453125e-06
+              },
+              {
+                "lower1": 0.3268050253391266,
+                "middle": 9.338796615600586,
+                "upper": 13.425198554992676,
+                "gamma": 4.7466230392456055
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                20
+              ],
+              {
+                "baseline_epsilon": 9.891353607177734,
+                "injected_epsilon": 9.891359329223633,
+                "epsilon_diff": 5.7220458984375e-06,
+                "abs_diff": 5.7220458984375e-06
+              },
+              {
+                "lower1": 0.3212871253490448,
+                "middle": 9.120006561279297,
+                "upper": 13.297430992126465,
+                "gamma": 4.768418312072754
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                12
+              ],
+              {
+                "baseline_epsilon": 12.073041915893555,
+                "injected_epsilon": 12.073047637939453,
+                "epsilon_diff": 5.7220458984375e-06,
+                "abs_diff": 5.7220458984375e-06
+              },
+              {
+                "lower1": 0.37668463587760925,
+                "middle": 11.3937406539917,
+                "upper": 14.472793579101562,
+                "gamma": 4.563508987426758
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                9
+              ],
+              {
+                "baseline_epsilon": 13.913236618041992,
+                "injected_epsilon": 13.91324234008789,
+                "epsilon_diff": 5.7220458984375e-06,
+                "abs_diff": 5.7220458984375e-06
+              },
+              {
+                "lower1": 0.45418262481689453,
+                "middle": 13.270071029663086,
+                "upper": 15.76406478881836,
+                "gamma": 4.318332672119141
+              }
+            ],
+            [
+              [
+                1,
+                9,
+                10
+              ],
+              {
+                "baseline_epsilon": 13.145751953125,
+                "injected_epsilon": 13.145757675170898,
+                "epsilon_diff": 5.7220458984375e-06,
+                "abs_diff": 5.7220458984375e-06
+              },
+              {
+                "lower1": 0.4181828498840332,
+                "middle": 12.490606307983398,
+                "upper": 15.210569381713867,
+                "gamma": 4.427158355712891
+              }
+            ]
+          ]
+        }
+      }
+    ],
+    "performance": {
+      "time": {
+        "total_time": 0.0206451416015625,
+        "baseline_forward_time": 0.007280826568603516,
+        "injection_forward_time": 0.006630897521972656,
+        "bounds_computation_time": 0.0007586479187011719,
+        "violation_detection_time": 0.003351449966430664
+      },
+      "memory": {
+        "peak_memory_allocated_mb": 1118.9736328125,
+        "peak_memory_reserved_mb": 1830.0,
+        "baseline_memory_mb": 1059.77685546875,
+        "injection_memory_mb": 1118.9736328125
+      },
+      "compute": {
+        "num_attention_layers": 12,
+        "num_attention_heads": 12,
+        "sequence_length": 64,
+        "batch_size": 2,
+        "attention_flops": 0.0,
+        "bounds_flops": 0.0
+      },
+      "extra": {}
+    }
+  }
+}

@@ -1,0 +1,18 @@
+[2025-12-12 07:10:19] [INFO] Experiment initialized: gpt2_comprehensive_sweep_seed=123_injection_layers=[3]_injection_bit=8_injection_location=weights_injection_idx=(0, 3, 53, 43)
+[2025-12-12 07:10:19] [INFO] Device: cuda, Dtype: torch.float32
+[2025-12-12 07:10:19] [INFO] Starting experiment with 1 runs
+[2025-12-12 07:10:19] [INFO] Starting run 0
+[2025-12-12 07:10:19] [INFO] Running baseline...
+[2025-12-12 07:10:19] [INFO] Baseline loss: 8.997109413146973
+[2025-12-12 07:10:19] [INFO] Running with injection...
+[2025-12-12 07:10:19] [INFO] Injected loss: 8.997109413146973
+[2025-12-12 07:10:19] [INFO] Loss diff: 0.0
+[2025-12-12 07:10:19] [INFO] Computing bounds...
+[2025-12-12 07:10:19] [INFO] Detecting violations...
+[2025-12-12 07:10:19] [INFO] Violations detected: False
+[2025-12-12 07:10:19] [INFO] Total violations: 0
+[2025-12-12 07:10:19] [INFO] Run 0 completed
+[2025-12-12 07:10:19] [INFO] Result saved for run 0
+[2025-12-12 07:10:19] [INFO] Summary saved
+[2025-12-12 07:10:19] [INFO] All results saved (1 runs)
+[2025-12-12 07:10:19] [INFO] Experiment completed
