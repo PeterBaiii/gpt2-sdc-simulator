@@ -1,6 +1,9 @@
 # Ignore all Python bytecode cache dirs
+__pycache__/
 **/__pycache__/
-**/__pycache__/**
+
+# Ignore VSCode settings folder
+.vscode/
 
 # Ignore everything under results by default
 results/**
@@ -20,3 +23,8 @@ results/**
 
 !results/sweep_experiments_k=v_comb/
 !results/sweep_experiments_k=v_comb/**
+
+!results/*.txt
+
+test/example.py
+test/quick_test.py

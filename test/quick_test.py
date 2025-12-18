@@ -96,7 +96,7 @@ except Exception as e:
 # 测试5: 测试collector
 print("\n[Test 5] Testing IntermediateTensorCollector...")
 try:
-    from src.complete_experiment_runner import IntermediateTensorCollector, run_model_with_collection
+    from real_model_exp.src.experiment_runner import IntermediateTensorCollector, run_model_with_collection
     
     collector = IntermediateTensorCollector()
     

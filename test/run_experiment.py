@@ -1,5 +1,5 @@
 """
-完整使用示例 - 从加载模型到运行实验的完整流程
+完整使用 - 从加载模型到运行实验的完整流程
 """
 
 import torch
@@ -9,7 +9,7 @@ from datasets import load_dataset, Dataset as HFDataset
 
 from src.experiment_config import ExperimentConfig
 from src.model_adapter import monkey_patch_model, check_kv_consistency
-from src.complete_experiment_runner import CompleteExperimentRunner
+from real_model_exp.src.experiment_runner import CompleteExperimentRunner
 
 
 def load_gpt2_model(model_name: str = 'gpt2', device_name: str = 'auto'):
@@ -317,7 +317,7 @@ def run_parameter_sweep_experiment():
     print(f"= 4 seeds × 4 layer configs × 32 bits × 4 locations × 4 positions")
     print(f"= {total_configs} configs\n")
     
-    from src.experiment_runner import ViolationLogger
+    from real_model_exp.src.experiment_logger import ViolationLogger
     # ===== 创建违背日志记录器 =====
     violation_logger = ViolationLogger(
         save_dir=base_config.save_dir + "/violations",
@@ -453,78 +453,6 @@ def run_parameter_sweep_experiment():
     print("="*60 + "\n")
     
     return all_results
-
-# def run_parameter_sweep_experiment():
-#     """运行参数扫描实验"""
-    
-#     print("\n" + "="*60)
-#     print("Parameter Sweep - Multiple Bit Positions")
-#     print("="*60 + "\n")
-    
-#     from src.experiment_config import ParameterSweepConfig
-    
-#     # 基础配置
-#     base_config = ExperimentConfig(
-#         exp_name="gpt2_bit_sweep",
-#         model_name="gpt2",
-#         batch_size=2,
-#         seq_length=64,
-#         num_samples=20,
-#         num_runs=2,
-        
-#         injection_enabled=True,
-#         injection_location="scores",
-#         injection_layers=[0, 1],  # 在前两层注入
-#         injection_idx=(0, 0, 2, 7),
-#     )
-    
-#     # 参数扫描
-#     sweep_config = ParameterSweepConfig(
-#         base_config=base_config,
-#         sweep_params={
-#             'injection_bit': [0, 7, 15, 23, 31],  # 5个比特位
-#             'seed': [42, 123],  # 2个种子
-#         }
-#     )
-    
-#     print(f"Total configurations: {sweep_config.get_num_configs()}")
-#     print(f"= 5 bits × 2 seeds = 10 configs\n")
-    
-#     # 加载模型(只加载一次)
-#     model, tokenizer, device = load_gpt2_model('gpt2')
-    
-#     # 准备数据(只准备一次)
-#     dataloader = prepare_dataset(
-#         tokenizer,
-#         max_samples=base_config.num_samples,
-#         seq_length=base_config.seq_length,
-#         batch_size=base_config.batch_size
-#     )
-    
-#     # 运行所有配置
-#     all_results = []
-    
-#     for i, config in enumerate(sweep_config.generate_configs()):
-#         print(f"\n{'='*60}")
-#         print(f"Configuration {i+1}/{sweep_config.get_num_configs()}")
-#         print(f"Bit: {config.injection_bit}, Seed: {config.seed}")
-#         print(f"{'='*60}")
-        
-#         # Patch模型
-#         model_copy = monkey_patch_model(
-#             model,
-#             'gpt2',
-#             injection_layers=config.injection_layers
-#         )
-        
-#         # 运行实验
-#         runner = CompleteExperimentRunner(config)
-#         results = runner.run_all(model_copy, dataloader)
-        
-#         all_results.extend(results)
-    
-#     print(f"\n✓ Parameter sweep completed: {len(all_results)} total runs")
-
 
 def run_multi_layer_experiment():
     """运行多层注入实验"""

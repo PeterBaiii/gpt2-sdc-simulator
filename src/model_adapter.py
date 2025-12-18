@@ -521,27 +521,3 @@ def force_kv_consistent(model, mode: str = "K<-V"):
                 b[2*s:3*s].copy_(b[s:2*s])
         else:
             raise ValueError("mode must be 'K<-V' or 'V<-K'")
-
-# 使用示例
-"""
-from transformers import GPT2LMHeadModel
-
-# 加载模型
-model = GPT2LMHeadModel.from_pretrained('gpt2')
-
-# Monkey patch
-model = monkey_patch_model(model, 'gpt2')
-
-# 现在可以通过adapter访问中间张量和注入错误
-from fault_injection import InjectionConfig, InjectionLocation
-
-injection_config = InjectionConfig(
-    location=InjectionLocation.SCORES,
-    idx=(0, 0, 2, 7),
-    bit=15,
-    enabled=True
-)
-
-# 在forward时传入injection_config
-# outputs = model(input_ids, injection_config=injection_config)
-"""

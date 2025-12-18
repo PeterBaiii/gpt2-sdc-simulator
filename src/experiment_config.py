@@ -252,15 +252,3 @@ class ConfigTemplates:
                 'injection_stage': ['inference']
             }
         )
-
-
-# if __name__ == "__main__":
-#     # 测试配置生成
-#     print("=== Minimal Test Config ===")
-#     config = ConfigTemplates.minimal_test()
-#     print(json.dumps(config.to_dict(), indent=2))
-    
-#     print("\n=== Bit Sweep Configs ===")
-#     sweep = ConfigTemplates.bit_sweep()
-#     print(f"Total configs: {sweep.get_num_configs()}")
-#     print(f"First config: {sweep.generate_configs()[0].exp_id}")
