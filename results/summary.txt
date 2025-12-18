@@ -1,0 +1,74 @@
+============================================================
+Parameter Sweep Summary
+============================================================
+Total configurations tested: 8192
+Total runs completed:        8192
+Configs with violations:     372 (4.5%)
+
+Largest loss change:
+  Config: gpt2_comprehensive_sweep_seed=0_injection_layers=[0]_injection_bit=30_injection_location=weights_injection_idx=(0, 0, 10, 20)
+  Loss diff: 0.111125
+  Location: weights
+  Bit: 30
+
+============================================================
+✓ Parameter sweep completed!
+✓ All results saved to ./results/sweep_experiments_k!v_s@w/
+============================================================
+
+
+============================================================
+Parameter Sweep Summary
+============================================================
+Total configurations tested: 8192
+Total runs completed:        8192
+Configs with violations:     504 (6.2%)
+
+Largest loss change:
+  Config: gpt2_comprehensive_sweep_seed=0_injection_layers=[0]_injection_bit=30_injection_location=k_injection_idx=(1, 9, 31, 62)
+  Loss diff: 2.142862
+  Location: k
+  Bit: 30
+
+============================================================
+✓ Parameter sweep completed!
+✓ All results saved to ./results/sweep_experiments_k=v_s@w/
+============================================================
+
+
+============================================================
+Parameter Sweep Summary
+============================================================
+Total configurations tested: 8192
+Total runs completed:        8192
+Configs with violations:     524 (6.4%)
+
+Largest loss change:
+  Config: gpt2_comprehensive_sweep_seed=0_injection_layers=[0]_injection_bit=30_injection_location=k_injection_idx=(1, 9, 31, 62)
+  Loss diff: 2.142862
+  Location: k
+  Bit: 30
+
+============================================================
+✓ Parameter sweep completed!
+✓ All results saved to ./results/sweep_experiments_k=v_q@o/
+============================================================
+
+
+============================================================
+Parameter Sweep Summary
+============================================================
+Total configurations tested: 8192
+Total runs completed:        8192
+Configs with violations:     596 (7.3%)
+
+Largest loss change:
+  Config: gpt2_comprehensive_sweep_seed=0_injection_layers=[0]_injection_bit=30_injection_location=k_injection_idx=(1, 9, 31, 62)
+  Loss diff: 2.142862
+  Location: k
+  Bit: 30
+
+============================================================
+✓ Parameter sweep completed!
+✓ All results saved to ./results/sweep_experiments_k=v_comb/
+============================================================
