@@ -1,371 +1,427 @@
-# gpt2-sdc-simulator
+# Silent Data Corruption Detection for Attention Mechanisms
 
-基于注意力机制理论边界的静默数据错误(SDC)检测框架,用于大规模GPU集群中LLM训练/推理的错误检测。
+基于蜕变关系边界的GPU静默数据损坏（SDC）检测框架，专门针对Transformer模型中的注意力机制。
 
-## 📁 模块结构
+## 项目简介
 
-```
-project/
-├── utils/
-│   ├── debug.py              # 调试工具
-│   ├── check_nan.py          # NaN检测
-│   ├── bound_fixing.py       # 边界检查
-│   └── return_top2.py        # Top-2选择
-│
-├── fault_injection.py        # 错误注入模块 ⭐
-├── bounds_computation.py     # 边界计算模块 ⭐
-├── experiment_config.py      # 实验配置模块 ⭐
-├── experiment_runner.py      # 实验运行模块 ⭐
-├── model_adapter.py          # 模型适配器模块 ⭐
-├── example_usage.py          # 使用示例
-│
-├── minimal_task.py           # 最小任务(原始实验)
-└── README.md                 # 本文档
-```
+本项目实现了技术报告 *"Silent Data Corruption Detection Based on Metamorphic Attention Bounds"* 中描述的SDC检测方法。通过为自注意力层导出解析边界作为蜕变关系，在注入故障时检测GPU计算中的静默数据损坏。
 
-## 🚀 快速开始
+### 核心特性
 
-### 1. 安装依赖
+- **注意力边界计算**：为标准点积自注意力导出上下界
+- **故障注入**：单比特翻转注入到注意力层中间张量
+- **蜕变检查**：验证输出是否违反理论边界
+- **多种边界计算方式**：支持 s@w、q@o、comb 三种计算方法
+- **多模型支持**：支持GPT-2等Transformer模型
+- **完整实验框架**：参数扫描、结果分析和可视化
+
+## 快速开始
+
+### 安装依赖
 
 ```bash
-pip install torch transformers datasets scipy numpy
+pip install -r requirements.txt
 ```
 
-### 2. 单次实验
+### 复现实验结果
+
+**运行参数扫描实验（推荐）**：
+
+```bash
+cd test
+python run_experiment.py sweep
+```
+
+或交互式选择：
+
+```bash
+cd test
+python run_experiment.py
+# 选择 2 (sweep) 进行参数扫描
+```
+
+这将自动运行完整的参数扫描实验，生成与论文一致的结果。
+
+### 其他实验模式
+
+```bash
+# 运行简单单次实验
+python run_experiment.py simple
+
+# 运行多层注入实验
+python run_experiment.py multilayer
+
+# 运行所有实验
+python run_experiment.py all
+```
+
+## 参数配置
+
+### 核心配置说明
+
+参数配置需要在 `test/run_experiment.py` 中的相应函数内修改。
+
+#### 1. 边界计算方法 (bound_type)
+
+在 `ExperimentConfig` 中设置：
 
 ```python
-from fault_injection import InjectionConfig, InjectionLocation
-from experiment_config import ExperimentConfig
-from experiment_runner import ExperimentRunner
-
-# 创建配置
 config = ExperimentConfig(
-    exp_name="my_experiment",
-    model_name="gpt2",
-    injection_location="scores",
-    injection_bit=15,
-    seed=42
+    # ...
+    bound_type="comb",  # 边界计算方法
+    # ...
 )
-
-# 运行实验
-runner = ExperimentRunner(config)
-results = runner.run_all(model, dataloader)
 ```
 
-### 3. 参数扫描
+**可选值**：
+- `"s@w"`: 使用 scores × weights 路径计算（K≠V通用）
+- `"q@o"`: 使用 Q × output 路径计算（需要K=V）
+- `"comb"`: 组合两种路径，取并集（最佳检测率）
+
+**说明**：
+- `s@w` 路径计算: `εi = √d · Σj wij·aij`（使用logits和weights）
+- `q@o` 路径计算: `εi = qi·Attn(xi)`（使用query和output）
+- `comb` 模式会同时检查两种路径，任一违反即报告检测
+
+#### 2. 强制KV相等 (force_kv_equal)
+
+在 `monkey_patch_model` 调用时设置：
 
 ```python
-from experiment_config import ConfigTemplates
+model = monkey_patch_model(
+    model,
+    'gpt2',
+    injection_layers=config.injection_layers,
+    force_kv_equal=True  # 是否强制K=V
+)
+```
 
-# 使用预定义模板
-sweep_config = ConfigTemplates.bit_sweep()
+**说明**：
+- `False`: 使用模型原始的K、V权重（可能不相等）
+- `True`: 强制令K权重等于V权重（通过权重复制）
 
-# 或自定义扫描
-from experiment_config import ParameterSweepConfig
+**实验发现**：
+- K=V 假设下边界更紧，检测率更高
+- 论文中最佳结果使用 `force_kv_equal=True` + `bound_type="comb"`
 
-sweep = ParameterSweepConfig(
+#### 3. 其他重要参数
+
+```python
+config = ExperimentConfig(
+    # 基础配置
+    exp_name="gpt2_sweep",           # 实验名称
+    seed=42,                          # 随机种子
+    
+    # 模型配置
+    model_name="gpt2",                # 模型名称
+    
+    # 数据配置
+    dataset_name="wikitext",          # 数据集
+    batch_size=4,                     # 批次大小
+    seq_length=128,                   # 序列长度
+    num_samples=100,                  # 样本数
+    
+    # 注入配置
+    injection_enabled=True,           # 启用注入
+    injection_location="scores",      # 注入位置
+    injection_layers=[0],             # 注入层
+    injection_idx=(0, 0, 10, 20),    # 张量索引
+    injection_bit=23,                 # 比特位
+    
+    # 边界检测配置
+    bounds_check=True,                # 启用边界检查
+    bound_type="comb",                # 边界计算方法
+    tolerance=0.0,                    # 违反容差
+    
+    # 实验控制
+    num_runs=1,                       # 重复次数
+    save_results=True,                # 保存结果
+    save_dir="./results"              # 保存目录
+)
+```
+
+### 参数扫描配置示例
+
+在 `run_parameter_sweep_experiment()` 中配置扫描参数：
+
+```python
+from src.experiment_config import ParameterSweepConfig
+
+sweep_config = ParameterSweepConfig(
     base_config=base_config,
     sweep_params={
-        'seed': [42, 123, 456],
+        # 1. 随机种子
+        'seed': [0, 42, 123, 3407],
+        
+        # 2. 注入层（选择不同的attention层）
+        'injection_layers': [[0], [3], [6], [9]],
+        
+        # 3. 比特位（0-31）
         'injection_bit': list(range(32)),
-        'injection_location': ['scores', 'weights']
+        
+        # 4. 注入位置（张量类型）
+        'injection_location': ['scores', 'weights', 'q', 'k'],
+        
+        # 5. 空间位置
+        'injection_idx': [
+            (0, 0, 10, 20),
+            (0, 3, 53, 43),
+            (1, 6, 32, 1),
+            (1, 9, 31, 62),
+        ],
     }
 )
 
-# 运行扫描
-from experiment_runner import run_parameter_sweep
-results = run_parameter_sweep(sweep, model_fn, data_fn)
+# 总配置数: 4 × 4 × 32 × 4 × 4 = 8192
 ```
 
-## 📦 核心模块详解
+## 主要实验结果
 
-### 1. fault_injection.py - 错误注入
+根据GPT-2实验（参见PDF报告第16-20页）：
 
-**功能:**
-- 单/多比特翻转
-- 随机位置注入
-- 概率性注入
-- 注入历史记录
+### 比特位检测率
+- **高位比特** (23-31): 检测率显著提高
+  - 比特30: ~73-75% 检测率
+  - 比特23-29: 10-30% 检测率
+- **低位比特** (0-22): 几乎无检测 (~0%)
 
-**主要类:**
-- `InjectionConfig`: 注入配置
-- `FaultInjector`: 注入器类
+### K=V vs K≠V 对比
+- **K=V (force_kv_equal=True)**：
+  - `s@w` 形式: 6.2% 总体检测率
+  - `q@o` 形式: 6.4% 总体检测率
+  - `comb` 组合: 7.3% 总体检测率
+- **K≠V (force_kv_equal=False)**：
+  - `s@w` 形式: 4.5% 总体检测率
 
-**示例:**
-```python
-from fault_injection import InjectionConfig, InjectionLocation, FaultInjector
+### 指数/符号位检测（比特23-31）
+- K≠V, s@w: 16.1% (371/2304)
+- K=V, s@w: 21.0% (484/2304)
+- K=V, q@o: 22.2% (512/2304)
+- **K=V, comb: 24.7% (568/2304)** ← 最佳配置
 
-config = InjectionConfig(
-    location=InjectionLocation.SCORES,
-    idx=(0, 0, 2, 7),
-    bit=15,
-    enabled=True
-)
+### 运行时开销
+- 注入开销: ~7% (几乎可忽略)
+- 边界检查开销:
+  - s@w 形式: ~13%
+  - q@o 形式: ~20%
+  - comb 形式: ~20%
+- 内存开销: ~5%
 
-injector = FaultInjector(config)
-info = injector.inject(tensor)
-```
-
-### 2. bounds_computation.py - 边界计算
-
-**功能:**
-- 计算注意力机制理论上下界
-- 基于Lambert W函数的紧致边界
-- NaN/Inf处理
-- 违反检测
-
-**主要函数:**
-- `compute_attention_bounds()`: 计算边界
-- `detect_violation()`: 检测违反
-- `compute_injected_epsilon()`: 计算注入后的epsilon
-
-**示例:**
-```python
-from bounds_computation import compute_attention_bounds, detect_violation
-
-bounds = compute_attention_bounds(scores, p, d=16)
-result = detect_violation(bounds, injected_epsilon)
-```
-
-### 3. experiment_config.py - 实验配置
-
-**功能:**
-- 统一的配置管理
-- 参数扫描生成
-- 配置保存/加载
-- 预定义模板
-
-**主要类:**
-- `ExperimentConfig`: 实验配置
-- `ParameterSweepConfig`: 参数扫描配置
-- `ConfigTemplates`: 预定义模板
-
-### 4. experiment_runner.py - 实验运行
-
-**功能:**
-- 实验执行
-- 结果记录
-- 日志管理
-- 汇总统计
-
-**主要类:**
-- `ExperimentRunner`: 实验运行器
-- `ResultsLogger`: 结果记录器
-- `ExperimentResult`: 结果数据类
-
-### 5. model_adapter.py - 模型适配
-
-**功能:**
-- 统一的注入接口
-- 中间张量捕获
-- Monkey patching
-- 多模型支持
-
-**支持的模型:**
-- ✅ GPT-2
-- ✅ DistilBERT
-- 🚧 TinyLlama
-- 🚧 OPT
-
-## 🎯 推荐的开源模型
-
-### 小规模模型 (< 200M参数)
-
-| 模型 | 参数量 | 推荐理由 | HuggingFace ID |
-|------|--------|----------|----------------|
-| **GPT-2 Small** | 124M | 代码成熟,易于hack | `gpt2` |
-| **DistilBERT** | 66M | 更小更快,双向注意力 | `distilbert-base-uncased` |
-| **OPT-125M** | 125M | 类GPT架构 | `facebook/opt-125m` |
-| **Pythia-70M** | 70M | 多检查点,适合分析 | `EleutherAI/pythia-70m` |
-| **Pythia-160M** | 160M | 同上 | `EleutherAI/pythia-160m` |
-
-### 中等规模模型 (200M-1B参数)
-
-| 模型 | 参数量 | 推荐理由 | HuggingFace ID |
-|------|--------|----------|----------------|
-| **GPT-2 Medium** | 355M | 平衡性能和规模 | `gpt2-medium` |
-| **OPT-350M** | 350M | 类GPT架构 | `facebook/opt-350m` |
-| **Pythia-410M** | 410M | 多检查点 | `EleutherAI/pythia-410m` |
-| **TinyLlama** | 1.1B | 现代架构,高效 | `TinyLlama/TinyLlama-1.1B` |
-
-### 推荐选择 (优先级排序)
-
-1. **GPT-2 (首选)** ⭐⭐⭐
-   - 最成熟的实现
-   - 丰富的社区资源
-   - 容易hack
-   
-2. **DistilBERT** ⭐⭐⭐
-   - 最小模型,快速实验
-   - 双向注意力,测试不同场景
-   
-3. **Pythia系列** ⭐⭐
-   - 多个训练检查点
-   - 适合研究训练过程
-
-4. **TinyLlama** ⭐⭐
-   - 现代架构(LLaMA)
-   - 1B参数仍可管理
-
-## 📊 推荐的数据集
-
-### 语言建模数据集
-
-| 数据集 | 大小 | 推荐理由 | HuggingFace ID |
-|--------|------|----------|----------------|
-| **WikiText-2** | 2M tokens | 小巧,快速测试 | `wikitext-2-raw-v1` |
-| **WikiText-103** | 100M tokens | 中等规模 | `wikitext-103-raw-v1` |
-| **OpenWebText** | 8M docs | GPT-2训练集 | `openwebtext` |
-| **C4 (subset)** | 可定制 | 大规模语料 | `c4` |
-
-### 下游任务数据集
-
-| 数据集 | 任务类型 | HuggingFace ID |
-|--------|----------|----------------|
-| **GLUE** | 多任务benchmark | `glue` |
-| **LAMBADA** | 语言理解 | `lambada` |
-| **HellaSwag** | 常识推理 | `hellaswag` |
-
-### 推荐选择
-
-1. **WikiText-2** (首选,快速原型) ⭐⭐⭐
-2. **WikiText-103** (中等规模实验) ⭐⭐⭐
-3. **OpenWebText** (更真实场景) ⭐⭐
-4. **C4 subset** (大规模测试) ⭐
-
-## 🔧 实验流程
-
-### 标准流程
+## 目录结构
 
 ```
-1. 配置 → 2. 加载模型/数据 → 3. Monkey patch → 4. Baseline运行 
-→ 5. 注入运行 → 6. 计算边界 → 7. 检测违反 → 8. 保存结果
+.
+├── src/                          # 核心源代码
+│   ├── bounds_computation.py     # 边界计算
+│   ├── model_adapter.py          # 模型适配器
+│   ├── fault_injection.py        # 故障注入
+│   ├── experiment_config.py      # 实验配置
+│   ├── experiment_runner.py      # 实验运行器
+│   ├── experiment_logger.py      # 实验日志
+│   └── performance_monitor.py    # 性能监控
+│
+├── test/                         # 测试和实验
+│   ├── run_experiment.py         # 主实验脚本 ⭐
+│   ├── analyzer.py               # 结果分析
+│   └── visualizer.py             # 结果可视化
+│
+├── utils/                        # 工具函数
+│   ├── bound_fixing.py           # 边界诊断
+│   ├── check_nan.py              # NaN检查
+│   ├── debug.py                  # 调试输出
+│   └── return_top2.py            # Top-2分析
+│
+├── requirements.txt              # 依赖列表
+└── README.md                     # 本文件
 ```
 
-### 参数扫描流程
+详细架构说明请参见：
+- [src/ 架构文档](./SRC_ARCHITECTURE.md)
+- [test/ 架构文档](./TEST_ARCHITECTURE.md)
+- [utils/ 架构文档](./UTILS_ARCHITECTURE.md)
 
+## 技术细节
+
+### 注意力边界理论
+
+对于自注意力层，定义：
+- `aij = (qi · kj) / √d`：缩放点积分数
+- `wij = softmax(aij)`：注意力权重
+- `Attn(xi) = Σj wij · vj`：注意力输出
+
+在K=V假设下，我们导出：
 ```
-1. 定义扫描范围 → 2. 生成所有配置 → 3. 批量运行 → 4. 汇总分析
+√d · γi / (1 + e^γi) ≤ εi ≤ min(qi·kj* - 1/n·Σj(qi·kj), √d·τ(γi, n))
 ```
 
-## 📈 实验设计建议
+其中：
+- `γi`：softmax margin
+- `εi = qi·kj* - qi·Attn(xi)`：偏差
+- `τ(γi, n)`：Lambert-W上界函数
 
-### 初步实验 (快速验证)
+### 蜕变关系
+
+我们使用两种等价的计算路径作为蜕变关系：
+1. **输出路径** (`q@o`): `qi·Attn(xi) = Σj wij·(qi·kj)`
+2. **逻辑路径** (`s@w`): `qi·Attn(xi) = √d·Σj Wij·Aij`
+
+任何路径违反边界即标记为潜在SDC。
+
+## 使用示例
+
+### 修改实验配置
+
+编辑 `test/run_experiment.py` 中的配置：
 
 ```python
-# 小模型 + 小数据 + 少量扫描
+def run_parameter_sweep_experiment():
+    # 基础配置
+    base_config = ExperimentConfig(
+        exp_name="gpt2_custom_sweep",
+        model_name="gpt2",
+        batch_size=4,
+        seq_length=128,
+        num_samples=100,
+        
+        # 修改边界计算方法
+        bound_type="comb",  # "s@w" / "q@o" / "comb"
+        
+        # 其他配置...
+    )
+    
+    # 扫描参数
+    sweep_config = ParameterSweepConfig(
+        base_config=base_config,
+        sweep_params={
+            'injection_bit': [23, 24, 30, 31],  # 只测试高位比特
+            'injection_location': ['scores', 'weights'],
+            # ... 其他参数
+        }
+    )
+    
+    # 加载模型
+    model, tokenizer, device = load_gpt2_model('gpt2')
+    
+    # Patch模型（设置force_kv_equal）
+    for config in sweep_config.generate_configs():
+        model = monkey_patch_model(
+            model,
+            'gpt2',
+            injection_layers=config.injection_layers,
+            force_kv_equal=True  # 修改此处控制K=V
+        )
+        # 运行实验...
+```
+
+### 分析结果
+
+```python
+from test.analyzer import ExperimentAnalyzer
+from test.visualizer import ExperimentVisualizer
+
+# 加载结果
+analyzer = ExperimentAnalyzer("./results/gpt2_sweep")
+
+# 生成统计报告
+analyzer.generate_report("analysis_report.txt")
+
+# 可视化
+viz = ExperimentVisualizer(analyzer.results_df)
+viz.plot_detection_by_bit("detection_by_bit.png")
+viz.plot_detection_heatmap("heatmap.png")
+viz.create_summary_dashboard("dashboard.png")
+```
+
+## 实验建议
+
+### 快速验证（~10分钟）
+```python
 config = ExperimentConfig(
-    model_name="distilbert-base-uncased",
-    dataset_name="wikitext-2-raw-v1",
-    batch_size=4,
-    num_samples=20,
-    num_runs=3
+    batch_size=2,
+    num_samples=10,
+    injection_bit=30,  # 测试高位比特
+    bound_type="comb"
 )
+```
 
-sweep_params = {
-    'injection_bit': [0, 7, 15, 23, 31],  # 5个比特
-    'injection_location': ['scores', 'weights'],  # 2个位置
-    'seed': [42, 123]  # 2个种子
+### 完整复现（~数小时）
+```bash
+cd test
+python run_experiment.py sweep
+```
+
+参数扫描包括：
+- 4个随机种子
+- 4个注意力层
+- 32个比特位
+- 4个注入位置
+- 4个空间位置
+- **总计：8192个配置**
+
+### 推荐配置
+
+**最佳检测率**：
+```python
+force_kv_equal=True
+bound_type="comb"
+injection_bit in [23-31]  # 高位比特
+```
+
+**平衡速度和覆盖**：
+```python
+force_kv_equal=True
+bound_type="s@w"
+injection_bit in [23, 30]
+num_samples=50
+```
+
+## 性能优化建议
+
+1. **GPU内存**：使用`batch_size=4-8`以平衡速度和内存
+2. **序列长度**：GPT-2在`seq_length=128`时运行良好
+3. **采样数**：快速测试用10-50样本，完整实验用100+
+4. **并行化**：多个seed可并行运行（修改代码支持多进程）
+
+## 局限性
+
+1. **覆盖率有限**：总体检测率~7-25%（取决于配置）
+2. **比特选择性**：主要检测高位比特翻转（指数/符号位）
+3. **单层注入**：当前实现每次只在一层注入
+4. **假设依赖**：K=V假设提高检测但限制通用性
+
+## 扩展方向
+
+1. **更紧的边界**：改进理论推导获得更tight的上下界
+2. **梯度边界**：支持训练时的反向传播检测
+3. **多层同时注入**：模拟更复杂的故障场景
+4. **其他架构**：支持BERT、LLaMA等模型
+5. **混合精度**：支持FP16/BF16的边界计算
+
+## 引用
+
+如果使用本代码，请引用：
+
+```bibtex
+@article{bai2025sdc,
+  title={Silent Data Corruption Detection Based on Metamorphic Attention Bounds},
+  author={Bai, Xinyu},
+  year={2025},
+  institution={University of Illinois Urbana-Champaign}
 }
-# 总配置数: 5 × 2 × 2 = 20
 ```
 
-### 中等规模实验
+## 相关工作
 
-```python
-# GPT-2 + WikiText-103 + 中等扫描
-config = ExperimentConfig(
-    model_name="gpt2",
-    dataset_name="wikitext-103-raw-v1",
-    batch_size=8,
-    num_samples=100,
-    num_runs=5
-)
+- [Dixit et al., 2021] - Silent Data Corruptions at Scale
+- [Ma et al., 2025] - Understanding Silent Data Corruption in LLM Training
+- [Hari et al., 2020] - Estimating Silent Data Corruption Rates
 
-sweep_params = {
-    'injection_bit': list(range(32)),  # 32个比特
-    'injection_location': ['q', 'k', 'v', 'scores', 'weights', 'out'],  # 6个位置
-    'seed': [42, 123, 456, 789]  # 4个种子
-}
-# 总配置数: 32 × 6 × 4 = 768
-```
+## 许可证
 
-### 大规模实验
+MIT License
 
-```python
-# 多模型 + 多数据集 + 完整扫描
-models = ['gpt2', 'distilbert-base-uncased', 'EleutherAI/pythia-160m']
-datasets = ['wikitext-103-raw-v1', 'openwebtext']
+## 联系方式
 
-# 每个模型-数据集组合运行完整扫描
-# 预计配置数: 3 × 2 × 768 = 4608
-```
-
-## 🎨 可视化分析
-
-建议的分析维度:
-
-1. **检测率分析**
-   - 不同比特位的检测率
-   - 不同注入位置的检测率
-   - 不同模型的检测率对比
-
-2. **边界紧致性分析**
-   - epsilon分布
-   - 违反margin统计
-   - 上下界gap分析
-
-3. **错误传播分析**
-   - 不同层的影响
-   - Loss变化vs违反检测
-   - 时序传播模式
-
-## 🔍 调试技巧
-
-### 1. 启用详细日志
-
-```python
-from utils.debug import enable_debug, enable_log_file
-
-enable_debug(True)
-enable_log_file("debug.log")
-```
-
-### 2. 检查中间张量
-
-```python
-from utils.check_nan import check_nan
-
-check_nan(scores, name="attention_scores")
-check_nan(bounds.epsilon, name="epsilon")
-```
-
-### 3. 验证边界
-
-```python
-from utils.bound_fixing import hist_tensor_diff
-
-hist_tensor_diff(bounds.to_dict())
-```
-
-## 📝 TODO
-
-- [ ] 完善model_adapter中TinyLlama和OPT的支持
-- [ ] 实现训练过程中的梯度注入
-- [ ] 添加因果掩码的特殊处理
-- [ ] 优化大规模实验的内存使用
-- [ ] 添加可视化工具
-- [ ] 支持分布式实验
-- [ ] 添加更多预定义实验模板
-
-## 📚 参考文献
-
-详见 `Logs.md` 中的理论推导和复杂度分析。
-
-## 🤝 贡献
-
-欢迎贡献代码、报告bug或提出改进建议!
-
-## 📄 License
-
-[待定]
+- 作者：Xinyu Bai
+- 邮箱：xbai@illinois.edu
+- 机构：University of Illinois Urbana-Champaign
