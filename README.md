@@ -1,4 +1,4 @@
-# Silent Data Corruption Detection for Attention Mechanisms
+# Silent Data Corruption Detection Based on Metamorphic Attention Bounds
 
 基于蜕变关系边界的GPU静默数据损坏（SDC）检测框架，专门针对Transformer模型中的注意力机制。
 
