@@ -414,7 +414,7 @@ num_samples=50
 
 - [Dixit et al., 2021] - Silent Data Corruptions at Scale
 - [Ma et al., 2025] - Understanding Silent Data Corruption in LLM Training
-- [Hari et al., 2020] - Estimating Silent Data Corruption Rates
+- [Hari et al., 2020] - Estimating Silent Data Corruption Rates Using a Two-Level Model
 
 ## 许可证
 
