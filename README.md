@@ -236,9 +236,9 @@ sweep_config = ParameterSweepConfig(
 ```
 
 详细架构说明请参见：
-- [src/ 架构文档](./SRC_ARCHITECTURE.md)
-- [test/ 架构文档](./TEST_ARCHITECTURE.md)
-- [utils/ 架构文档](./UTILS_ARCHITECTURE.md)
+- [src/ 架构文档](./SRC_ARCH.md)
+- [test/ 架构文档](./TEST_ARCH.md)
+- [utils/ 架构文档](./UTILS_ARCH.md)
 
 ## 技术细节
 
@@ -334,7 +334,7 @@ viz.create_summary_dashboard("dashboard.png")
 
 ## 实验建议
 
-### 快速验证（~10分钟）
+### 快速验证（~2分钟）
 ```python
 config = ExperimentConfig(
     batch_size=2,
@@ -344,7 +344,7 @@ config = ExperimentConfig(
 )
 ```
 
-### 完整复现（~数小时）
+### 完整复现（~20分钟）
 ```bash
 cd test
 python run_experiment.py sweep
