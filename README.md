@@ -236,9 +236,9 @@ sweep_config = ParameterSweepConfig(
 ```
 
 详细架构说明请参见：
-- [src/ 架构文档](./SRC_ARCH.md)
-- [test/ 架构文档](./TEST_ARCH.md)
-- [utils/ 架构文档](./UTILS_ARCH.md)
+- [src/ 架构文档](./docs/SRC_ARCH.md)
+- [test/ 架构文档](./docs/TEST_ARCH.md)
+- [utils/ 架构文档](./docs/UTILS_ARCH.md)
 
 ## 技术细节
 
